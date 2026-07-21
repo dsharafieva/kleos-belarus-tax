@@ -136,29 +136,11 @@
     margin-top:5px;flex-shrink:0}
   .tl .what strong{display:block;font-size:1rem;margin-bottom:4px}
   .tl .what p{font-size:.9rem;color:#3a3a3a;line-height:1.5}
-  .mis{background:var(--orange);color:var(--white)}
-  .mis h2{font-size:clamp(2rem,4vw,2.9rem);font-weight:900;color:var(--white);max-width:18ch}
-  .mis .sub{color:rgba(255,255,255,.92);max-width:64ch;margin-top:16px;font-size:1.02rem;line-height:1.55}
-  .checklist{background:var(--white);color:var(--ink);border-radius:var(--radius);margin-top:40px;
-    padding:28px 30px;box-shadow:0 30px 60px -30px rgba(0,0,0,.4)}
-  .checklist .ci{font-size:.85rem;color:var(--grey-text);margin-bottom:16px}
-  .check{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--grey-line);cursor:pointer}
-  .check:last-of-type{border-bottom:none}
-  .check .box{width:24px;height:24px;border-radius:6px;border:2px solid var(--grey-line);flex-shrink:0;
-    display:flex;align-items:center;justify-content:center;transition:all .14s}
-  .check .box svg{width:13px;height:13px;opacity:0;transform:scale(.5);transition:all .14s}
-  .check.on .box{background:var(--green);border-color:var(--green)}
-  .check.on .box svg{opacity:1;transform:scale(1)}
-  .check .txt{font-size:.95rem;font-weight:500;padding-top:2px}
-  .verdict{margin-top:20px;padding:16px 18px;border-radius:var(--radius-sm);background:var(--grey);
-    font-weight:600;font-size:.95rem;transition:all .2s}
-  .verdict.safe{background:#E7F7EC;color:#046b1e}
-  .divergence{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
-  .dbox{border:1px solid var(--grey-line);border-radius:var(--radius-sm);padding:18px}
-  .dbox h4{font-size:.95rem;margin-bottom:8px}
-  .dbox p{font-size:.84rem;color:#3a3a3a;line-height:1.5}
-  .dbox .flag{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
-  .dbox.us .flag{color:var(--green)} .dbox.eu .flag{color:var(--orange)}
+  .note{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--grey-line);
+    border-left:4px solid var(--orange);border-radius:var(--radius-sm);padding:20px 22px;background:var(--grey)}
+  .note-ico{font-size:1.3rem;line-height:1.2}
+  .note strong{font-size:1rem;display:block;margin-bottom:6px}
+  .note p{font-size:.9rem;color:#3a3a3a;line-height:1.55;max-width:82ch}
   .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
   .case{background:var(--grey);border-radius:var(--radius);padding:24px;border:1px solid transparent;transition:border-color .14s}
   .case:hover{border-color:var(--grey-line)}
@@ -196,7 +178,6 @@
     .fact:nth-child(3),.fact:nth-child(4){border-top:1px solid var(--grey-line)}
     .card{grid-template-columns:1fr;gap:24px}
     .three{grid-template-columns:1fr}
-    .divergence{grid-template-columns:1fr}
     .cases{grid-template-columns:1fr}
     .tl{grid-template-columns:1fr;gap:6px}
     .cta{padding:34px}
@@ -214,7 +195,6 @@
     <div class="nav-links">
       <a href="#calc" data-i18n="nav_calc">Calculator</a>
       <a href="#how" data-i18n="nav_how">How it works</a>
-      <a href="#class" data-i18n="nav_class">Sanctions &amp; payments</a>
       <a href="#cases" data-i18n="nav_cases">Special cases</a>
       <a href="#faq" data-i18n="nav_faq">FAQ</a>
     </div>
@@ -232,17 +212,17 @@
 <section class="hero">
   <div class="wrap">
     <span class="eyebrow" data-i18n="hero_eyebrow">Belarus · Contractor taxation guide · 2026</span>
-    <h1><span data-i18n="hero_h1a">Hiring in Belarus?</span><br><span data-i18n="hero_h1b">Here's where the money goes — </span><span class="hl" data-i18n="hero_h1c">and whether you can pay it.</span></h1>
-    <p class="lead" data-i18n="hero_lead">Belarus has some of the lightest contractor taxes in the region — a self-employed freelancer can keep 90% of what they invoice. But the real question for a foreign company usually isn't the rate. It's whether sanctions and payment rails let you pay them at all. This page covers both.</p>
+    <h1><span data-i18n="hero_h1a">Hiring in Belarus?</span><br><span data-i18n="hero_h1b">Here's where the money </span><span class="hl" data-i18n="hero_h1c">actually goes.</span></h1>
+    <p class="lead" data-i18n="hero_lead">Belarus has some of the lightest contractor taxes in the region — a self-employed freelancer can keep 90% of what they invoice. Pick a status, run the numbers, and see what actually lands. (One caveat worth checking first: sanctions and payment rules can affect how you pay.)</p>
     <div class="hero-cta">
       <a class="btn btn-green" href="#calc"><span data-i18n="hero_btn1">Run the numbers</span><i>→</i></a>
-      <a class="btn btn-grey" href="#class"><span data-i18n="hero_btn2">Can you pay them?</span><i>→</i></a>
+      <a class="btn btn-grey" href="#how"><span data-i18n="hero_btn2">How it works</span><i>→</i></a>
     </div>
     <div class="facts">
       <div class="fact"><div class="n">10%</div><div class="l" data-i18n="fact1">self-employed tax — and social contributions are already included</div></div>
       <div class="fact"><div class="n">20%</div><div class="l" data-i18n="fact2">flat income tax for a registered entrepreneur, on profit</div></div>
       <div class="fact"><div class="n">20% → 13%</div><div class="l" data-i18n="fact3">company profit tax, then again on dividends</div></div>
-      <div class="fact"><div class="n" data-i18n="fact4n">Sanctions</div><div class="l" data-i18n="fact4">the payment rail, not the rate, is usually the real constraint</div></div>
+      <div class="fact"><div class="n">≈€860</div><div class="l" data-i18n="fact4">fixed yearly social-contribution floor for an entrepreneur, whatever they earn</div></div>
     </div>
   </div>
 </section>
@@ -255,7 +235,7 @@
   <div class="coin" style="width:38px;height:38px;bottom:20%;left:10%"></div>
   <div class="wrap">
     <h2 data-i18n="calc_h2">Same invoice. Three very different bills.</h2>
-    <p class="sub" data-i18n="calc_sub">The self-employed route is strikingly cheap; a company is not. Pick a status, type the yearly amount, and see what actually lands — then read the payments section, because it decides whether any of this is reachable.</p>
+    <p class="sub" data-i18n="calc_sub">The self-employed route is strikingly cheap; a company is not. Pick a status, type the yearly amount, and see what actually lands.</p>
 
     <div class="card">
       <div class="regimes">
@@ -386,28 +366,14 @@
 </section>
 
 <!-- SANCTIONS & PAYMENTS -->
-<section class="mis" id="class">
+<section id="class" style="padding-top:44px;padding-bottom:44px">
   <div class="wrap">
-    <h2 data-i18n="mis_h2">The rate is easy. Paying them is the hard part.</h2>
-    <p class="sub" data-i18n="mis_sub">Following the 2020 presidential election and Belarus's role in Russia's invasion of Ukraine, the EU, US, UK and others imposed sanctions that still shape any payment into the country. Several Belarusian banks are cut from SWIFT or under full EU transaction bans; the central bank is restricted; currency controls apply on the Belarus side. As of 2026 the pictures diverge — so what you can legally do depends on where your company sits.</p>
-
-    <div class="divergence">
-      <div class="dbox us">
-        <div class="flag" data-i18n="mis_us_flag">United States · easing</div>
-        <h4 data-i18n="mis_us_t">Progressive relief since late 2025</h4>
-        <p data-i18n="mis_us_p">The US has been lifting measures in stages — for example authorising dealings with several previously restricted Belarusian banks. A US-nexus payment may be permissible where it recently was not, but this is fluid and conditional.</p>
+    <div class="note">
+      <div class="note-ico">⚠️</div>
+      <div>
+        <strong data-i18n="note_h">Before you pay</strong>
+        <p data-i18n="note_p">Sanctions and payment-rail restrictions may apply when paying into Belarus, and they differ by jurisdiction and change often. This sits outside the tax picture below — screen your counterparty and check compliance in your own jurisdiction before committing.</p>
       </div>
-      <div class="dbox eu">
-        <div class="flag" data-i18n="mis_eu_flag">European Union · maintained</div>
-        <h4 data-i18n="mis_eu_t">Restrictions upheld and extended</h4>
-        <p data-i18n="mis_eu_p">The EU has kept and widened its measures, converting SWIFT bans into full transaction prohibitions with named banks and entities they majority-own. An EU-nexus payment to the wrong counterparty is blocked and can carry liability.</p>
-      </div>
-    </div>
-
-    <div class="checklist">
-      <div class="ci" data-i18n="mis_ci">A practical readiness check before you pay a contractor in Belarus. This is orientation, not legal advice — screen against your own jurisdiction's current lists.</div>
-      <div id="checks"></div>
-      <div class="verdict" id="verdict" data-i18n="mis_v0">Work through the steps above to gauge how reachable a payment is.</div>
     </div>
   </div>
 </section>
@@ -433,15 +399,15 @@
         <span class="tag up" data-i18n="case2_tag">Stays 10%</span>
       </div>
       <div class="case">
-        <div class="ico">🏦</div>
-        <h3 data-i18n="case3_t">Their bank and your jurisdiction</h3>
-        <p data-i18n="case3_p">If the contractor banks with a SWIFT-cut or transaction-banned institution, an EU payer may not be able to pay them regardless of the tax result. A US payer might, as of 2026. The rail can override the maths entirely.</p>
-        <span class="tag down" data-i18n="case3_tag">Can block</span>
+        <div class="ico">🧾</div>
+        <h3 data-i18n="case3_t">No expense deduction if self-employed</h3>
+        <p data-i18n="case3_p">The 10% self-employed rate is charged on gross revenue, with no deduction for costs. For work with heavy expenses, an entrepreneur or company — taxed on profit — can come out ahead despite the higher headline rates.</p>
+        <span class="tag flat" data-i18n="case3_tag">Depends</span>
       </div>
       <div class="case">
         <div class="ico">💻</div>
         <h3 data-i18n="case4_t">High-Tech Park (ПВТ) residency</h3>
-        <p data-i18n="case4_p">The HTP long gave IT companies near-zero profit tax and reduced contributions. Preferences remain but have narrowed, and many residents relocated after 2022. Still worth checking if the contractor operates through an HTP company.</p>
+        <p data-i18n="case4_p">The HTP long gave IT companies near-zero profit tax and reduced contributions. Preferences remain but have narrowed in recent years. Still worth checking if the contractor operates through an HTP company.</p>
         <span class="tag up" data-i18n="case4_tag">Can lower</span>
       </div>
       <div class="case">
@@ -472,7 +438,7 @@
 <section id="cta" style="padding-top:20px">
   <div class="wrap">
     <div class="cta">
-      <h2 data-i18n="cta_h2">Want the sanctions and payment side handled, not just the tax?</h2>
+      <h2 data-i18n="cta_h2">Want hiring in Belarus handled end to end?</h2>
       <a class="btn btn-orange" href="#"><span data-i18n="cta_btn">Book a demo</span><i>→</i></a>
     </div>
   </div>
@@ -483,7 +449,7 @@
   <div class="foot">
     <div>
       <div class="logo">Kle<b>o</b>s</div>
-      <p class="disc" data-i18n="footer_disc">This page is for general information only and is not tax, legal, accounting or sanctions-compliance advice. Tax figures reflect the 2026 Belarusian rules and simplified assumptions stated next to each calculation; rates have changed repeatedly in recent years. Amounts are shown in euros at an indicative ~3.55 BYN/€ for comparison, but Belarusian tax is assessed in rubles and the rate moves. The sanctions summary is a neutral, high-level snapshot that changes frequently and differs by jurisdiction — always screen counterparties against your own government's current lists and take qualified sanctions and tax advice before paying anyone in Belarus.</p>
+      <p class="disc" data-i18n="footer_disc">This page is for general information only and is not tax, legal, accounting or sanctions-compliance advice. Tax figures reflect the 2026 Belarusian rules and simplified assumptions stated next to each calculation; rates have changed repeatedly in recent years. Amounts are shown in euros at an indicative ~3.55 BYN/€ for comparison, but Belarusian tax is assessed in rubles and the rate moves. Any note on sanctions here is a neutral, high-level pointer that changes frequently and differs by jurisdiction — always screen counterparties against your own government's current lists and take qualified sanctions and tax advice before paying anyone in Belarus.</p>
     </div>
     <div class="copy">© 2026 Kleos</div>
   </div>
@@ -555,7 +521,7 @@ const parseNum = s => parseFloat((s||'').toString().replace(/[^\d.]/g,'')) || 0;
 function setLang(l){ LANG=l; document.documentElement.lang=l;
   document.getElementById('lang-en').classList.toggle('on', l==='en');
   document.getElementById('lang-ru').classList.toggle('on', l==='ru');
-  applyI18n(); buildChecklist(); buildFaq(); calc();
+  applyI18n(); buildFaq(); calc();
 }
 function setRegime(r){ regime=r;
   document.querySelectorAll('.regime').forEach(b=>b.classList.toggle('on', b.dataset.regime===r));
@@ -621,24 +587,6 @@ function render(r, gross){
 }
 function row(label,val,sub){ return `<div class="line ${sub?'sub':''}"><span class="ll">${label}</span><span class="lv">${val}</span></div>`; }
 
-/* ---- payment-readiness checklist (neutral) ---- */
-let checkState=[];
-function buildChecklist(){
-  const T=I18N[LANG];
-  const tick='<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
-  document.getElementById('checks').innerHTML = T.checks.map((c,i)=>
-    `<div class="check ${checkState[i]?'on':''}" onclick="toggleCheck(${i})"><div class="box">${tick}</div><div class="txt">${c}</div></div>`).join('');
-  updateVerdict();
-}
-function toggleCheck(i){ checkState[i]=!checkState[i]; buildChecklist(); }
-function updateVerdict(){
-  const T=I18N[LANG], n=checkState.filter(Boolean).length, total=T.checks.length, v=document.getElementById('verdict');
-  v.className='verdict';
-  if(n===0){ v.textContent=T.mis_v0; }
-  else if(n<total){ v.textContent=T.mis_vprogress.replace('{n}',n).replace('{t}',total); }
-  else { v.classList.add('safe'); v.textContent=T.mis_vdone.replace('{t}',total); }
-}
-
 /* ---- FAQ ---- */
 function buildFaq(){
   const T=I18N[LANG];
@@ -662,18 +610,20 @@ document.addEventListener('input', e=>{ if(['gross','net','exp'].includes(e.targ
    ============================================================ */
 const I18N = {
  en: {
-  nav_calc:"Calculator", nav_how:"How it works", nav_class:"Sanctions & payments",
+  nav_calc:"Calculator", nav_how:"How it works",
   nav_cases:"Special cases", nav_faq:"FAQ", nav_demo:"Book a demo",
   hero_eyebrow:"Belarus · Contractor taxation guide · 2026",
-  hero_h1a:"Hiring in Belarus?", hero_h1b:"Here's where the money goes — ", hero_h1c:"and whether you can pay it.",
-  hero_lead:"Belarus has some of the lightest contractor taxes in the region — a self-employed freelancer can keep 90% of what they invoice. But the real question for a foreign company usually isn't the rate. It's whether sanctions and payment rails let you pay them at all. This page covers both.",
-  hero_btn1:"Run the numbers", hero_btn2:"Can you pay them?",
+  hero_h1a:"Hiring in Belarus?", hero_h1b:"Here's where the money ", hero_h1c:"actually goes.",
+  hero_lead:"Belarus has some of the lightest contractor taxes in the region — a self-employed freelancer can keep 90% of what they invoice. Pick a status, run the numbers, and see what actually lands. (One caveat worth checking first: sanctions and payment rules can affect how you pay.)",
+  hero_btn1:"Run the numbers", hero_btn2:"How it works",
+  note_h:"Before you pay",
+  note_p:"Sanctions and payment-rail restrictions may apply when paying into Belarus, and they differ by jurisdiction and change often. This sits outside the tax picture below — screen your counterparty and check compliance in your own jurisdiction before committing.",
   fact1:"self-employed tax — and social contributions are already included",
   fact2:"flat income tax for a registered entrepreneur, on profit",
   fact3:"company profit tax, then again on dividends",
-  fact4n:"Sanctions", fact4:"the payment rail, not the rate, is usually the real constraint",
+  fact4:"fixed yearly social-contribution floor for an entrepreneur, whatever they earn",
   calc_h2:"Same invoice. Three very different bills.",
-  calc_sub:"The self-employed route is strikingly cheap; a company is not. Pick a status, type the yearly amount, and see what actually lands — then read the payments section, because it decides whether any of this is reachable.",
+  calc_sub:"The self-employed route is strikingly cheap; a company is not. Pick a status, type the yearly amount, and see what actually lands.",
   reg_npd_t:"Self-employed", reg_npd_d:"Professional income tax — 10% all-in",
   reg_ip_t:"Entrepreneur (IP)", reg_ip_d:"20% income tax + contributions",
   reg_ooo_t:"OOO company", reg_ooo_d:"Profit tax + dividends",
@@ -715,38 +665,20 @@ const I18N = {
   tl3_p:"An IP files income tax on profit (income minus documented expenses) and pays the social-contribution floor for the year by 31 March of the following year.",
   tl4_when:"Watch continuously", tl4_t:"Currency rules and the payment rail",
   tl4_p:"Foreign-currency proceeds face currency-control rules on the Belarus side — and on the payer's side, sanctions screening and a working bank route decide whether the money arrives at all.",
-  mis_h2:"The rate is easy. Paying them is the hard part.",
-  mis_sub:"Following the 2020 presidential election and Belarus's role in Russia's invasion of Ukraine, the EU, US, UK and others imposed sanctions that still shape any payment into the country. Several Belarusian banks are cut from SWIFT or under full EU transaction bans; the central bank is restricted; currency controls apply on the Belarus side. As of 2026 the pictures diverge — so what you can legally do depends on where your company sits.",
-  mis_us_flag:"United States · easing", mis_us_t:"Progressive relief since late 2025",
-  mis_us_p:"The US has been lifting measures in stages — for example authorising dealings with several previously restricted Belarusian banks. A US-nexus payment may be permissible where it recently was not, but this is fluid and conditional.",
-  mis_eu_flag:"European Union · maintained", mis_eu_t:"Restrictions upheld and extended",
-  mis_eu_p:"The EU has kept and widened its measures, converting SWIFT bans into full transaction prohibitions with named banks and entities they majority-own. An EU-nexus payment to the wrong counterparty is blocked and can carry liability.",
-  mis_ci:"A practical readiness check before you pay a contractor in Belarus. This is orientation, not legal advice — screen against your own jurisdiction's current lists.",
-  checks:[
-    "Identify which sanctions regime governs you — your company's jurisdiction (EU, US, UK) sets the rules, and they currently diverge",
-    "Screen the contractor, and any intermediary or agent, against your jurisdiction's current designated-persons lists",
-    "Confirm the contractor's receiving bank isn't cut from SWIFT or under a transaction ban you're bound by",
-    "Check the activity or sector isn't itself restricted (for example dual-use or specific service bans)",
-    "Establish a payment route your own bank or provider will actually process to Belarus",
-    "Document a genuine, arm's-length contractor relationship and keep the records"
-  ],
-  mis_v0:"Work through the steps above to gauge how reachable a payment is.",
-  mis_vprogress:"{n} of {t} steps noted — keep going; each one materially affects whether you can pay.",
-  mis_vdone:"All {t} noted. That's a sound starting point — still confirm with qualified sanctions counsel before you pay, as designations change frequently.",
   cases_eyebrow:"Same rate, different net",
   cases_h2:"Cases that change the final number",
   cases_sub:"In Belarus the status and the payment route matter more than the headline rate. These move the outcome most.",
   case1_t:"Which status they register", case1_p:"Self-employed (10% all-in), entrepreneur (20% + a small floor) and company (20% then 13% on dividends) don't converge — the burden can run from 10% to nearly 40% at the same income. It's the biggest lever on this page.", case1_tag:"Big swing",
   case2_t:"Billing a foreign client", case2_p:"The self-employed 20% band only applies to income from Belarusian companies above 60,000 BYN. Income from a foreign client stays at the flat 10% — which is exactly the cross-border contractor case.", case2_tag:"Stays 10%",
-  case3_t:"Their bank and your jurisdiction", case3_p:"If the contractor banks with a SWIFT-cut or transaction-banned institution, an EU payer may not be able to pay them regardless of the tax result. A US payer might, as of 2026. The rail can override the maths entirely.", case3_tag:"Can block",
-  case4_t:"High-Tech Park (ПВТ) residency", case4_p:"The HTP long gave IT companies near-zero profit tax and reduced contributions. Preferences remain but have narrowed, and many residents relocated after 2022. Still worth checking if the contractor operates through an HTP company.", case4_tag:"Can lower",
+  case3_t:"No expense deduction if self-employed", case3_p:"The 10% self-employed rate is charged on gross revenue, with no deduction for costs. For work with heavy expenses, an entrepreneur or company — taxed on profit — can come out ahead despite the higher headline rates.", case3_tag:"Depends",
+  case4_t:"High-Tech Park (ПВТ) residency", case4_p:"The HTP long gave IT companies near-zero profit tax and reduced contributions. Preferences remain but have narrowed in recent years. Still worth checking if the contractor operates through an HTP company.", case4_tag:"Can lower",
   case5_t:"Crossing the high-income bands", case5_p:"Personal income over 220,000 BYN (~€62k) a year meets a 25% rate, and very high entrepreneur income can reach 30%. Comfortably above where a typical single-client contractor lands, but worth knowing at the top end.", case5_tag:"Net ↓",
   case6_t:"Dividend timing", case6_p:"Company owners once used 6% or 0% dividend rates for profit left undistributed for three or five years. Those reliefs are being phased out, so the 13% standard rate is the safe planning assumption now.", case6_tag:"Changing",
-  cta_h2:"Want the sanctions and payment side handled, not just the tax?", cta_btn:"Book a demo",
-  footer_disc:"This page is for general information only and is not tax, legal, accounting or sanctions-compliance advice. Tax figures reflect the 2026 Belarusian rules and simplified assumptions stated next to each calculation; rates have changed repeatedly in recent years. Amounts are shown in euros at an indicative ~3.55 BYN/€ for comparison, but Belarusian tax is assessed in rubles and the rate moves. The sanctions summary is a neutral, high-level snapshot that changes frequently and differs by jurisdiction — always screen counterparties against your own government's current lists and take qualified sanctions and tax advice before paying anyone in Belarus.",
+  cta_h2:"Want hiring in Belarus handled end to end?", cta_btn:"Book a demo",
+  footer_disc:"This page is for general information only and is not tax, legal, accounting or sanctions-compliance advice. Tax figures reflect the 2026 Belarusian rules and simplified assumptions stated next to each calculation; rates have changed repeatedly in recent years. Amounts are shown in euros at an indicative ~3.55 BYN/€ for comparison, but Belarusian tax is assessed in rubles and the rate moves. Any note on sanctions here is a neutral, high-level pointer that changes frequently and differs by jurisdiction — always screen counterparties against your own government's current lists and take qualified sanctions and tax advice before paying anyone in Belarus.",
   faq:[
     {q:"Who actually pays the taxes — the company or the contractor?",a:"The contractor. A Belarusian self-employed person, entrepreneur or company invoices you and handles their own tax and contributions — the self-employed simply declare income in the tax app and pay 10%, contributions included. Your job is to pay the agreed invoice, but the rate you agree sets what's left after their taxes, so this page shows both sides."},
-    {q:"Can we even pay a contractor in Belarus?",a:"Sometimes, with care — it depends on your jurisdiction and on the contractor's bank. Several Belarusian banks are cut from SWIFT or under full EU transaction bans, and the EU maintains broad restrictions, while the US has been easing measures since late 2025. So an EU-based payer and a US-based payer can face very different answers for the same contractor. Screen the counterparty and their bank against your own government's current lists, confirm a working payment route, and take qualified sanctions advice before sending anything."},
+    {q:"Can we even pay a contractor in Belarus?",a:"Often yes, but it depends on your jurisdiction and the contractor's bank — sanctions and payment-rail restrictions can apply, and they change. That's a compliance question separate from the tax picture on this page: screen the counterparty against your own government's current lists, confirm a working payment route, and take qualified advice before sending anything."},
     {q:"Why is the self-employed rate only 10%?",a:"Belarus's professional income tax for the self-employed is a flat 10% of revenue that already bundles the social-contribution component, with no separate expense accounting. Crucially, income earned from foreign clients stays at 10% — the higher 20% band applies only to income received from Belarusian companies above 60,000 BYN a year. For a solo contractor billing abroad, that makes it the simplest and cheapest status by a wide margin."},
     {q:"What's the difference between self-employed, an IP and an OOO?",a:"Self-employed is an individual on the 10% professional income tax — simplest and cheapest, best for a solo contractor. An IP (individual entrepreneur) pays 20% income tax on profit plus a small fixed social-contribution floor, and suits someone with real business expenses or activities the self-employed regime doesn't cover. An OOO is a limited company — 20% profit tax then 13% on dividends, plus a director and accounting — which suits scale but carries the heaviest effective burden here."},
     {q:"What about the High-Tech Park?",a:"The HTP is Belarus's special IT regime, historically offering resident companies near-zero profit tax, VAT relief and reduced social contributions calculated on the national average wage rather than full salary. It remains in place with some preferences, though several have narrowed since 2025 and many residents relocated after 2022. If a contractor operates through an HTP-resident company the numbers can be materially lower — worth confirming case by case."},
@@ -754,18 +686,20 @@ const I18N = {
   ]
  },
  ru: {
-  nav_calc:"Калькулятор", nav_how:"Как это работает", nav_class:"Санкции и платежи",
+  nav_calc:"Калькулятор", nav_how:"Как это работает",
   nav_cases:"Особые случаи", nav_faq:"Вопросы", nav_demo:"Заказать демо",
   hero_eyebrow:"Беларусь · Гид по налогам для подрядчиков · 2026",
-  hero_h1a:"Нанимаете в Беларуси?", hero_h1b:"Вот куда уходят деньги — ", hero_h1c:"и сможете ли вы их заплатить.",
-  hero_lead:"В Беларуси одни из самых низких налогов на подрядчиков в регионе — самозанятый оставляет себе 90% выставленного счёта. Но для иностранной компании главный вопрос обычно не ставка. Вопрос в том, позволят ли санкции и платёжные каналы вообще заплатить. Эта страница — про обе стороны.",
-  hero_btn1:"Посчитать", hero_btn2:"Сможете заплатить?",
+  hero_h1a:"Нанимаете в Беларуси?", hero_h1b:"Вот куда ", hero_h1c:"реально уходят деньги.",
+  hero_lead:"В Беларуси одни из самых низких налогов на подрядчиков в регионе — самозанятый оставляет себе 90% выставленного счёта. Выберите статус, посчитайте и посмотрите, что реально останется. (Одну вещь стоит проверить заранее: санкции и платёжные правила могут влиять на то, как платить.)",
+  hero_btn1:"Посчитать", hero_btn2:"Как это устроено",
+  note_h:"Перед оплатой",
+  note_p:"При оплате в Беларусь могут применяться санкционные и платёжные ограничения — они зависят от юрисдикции и часто меняются. Это вне налоговой картины ниже: проверьте контрагента и комплаенс в своей юрисдикции, прежде чем брать обязательства.",
   fact1:"налог самозанятого — и страховые взносы уже включены",
   fact2:"плоский подоходный для ИП, на прибыль",
   fact3:"налог на прибыль компании, затем ещё раз на дивиденды",
-  fact4n:"Санкции", fact4:"настоящее ограничение — обычно платёжный канал, а не ставка",
+  fact4:"фиксированный годовой минимум взносов для ИП — независимо от дохода",
   calc_h2:"Один счёт. Три очень разных результата.",
-  calc_sub:"Режим самозанятого поразительно дёшев; компания — нет. Выберите статус, введите годовую сумму и посмотрите, что реально останется, — а затем прочитайте раздел о платежах, ведь именно он решает, достижимо ли всё это.",
+  calc_sub:"Режим самозанятого поразительно дёшев; компания — нет. Выберите статус, введите годовую сумму и посмотрите, что реально останется.",
   reg_npd_t:"Самозанятый", reg_npd_d:"Налог на профдоход — 10% «всё включено»",
   reg_ip_t:"ИП", reg_ip_d:"Подоходный 20% + взносы",
   reg_ooo_t:"ООО", reg_ooo_d:"Налог на прибыль + дивиденды",
@@ -807,38 +741,20 @@ const I18N = {
   tl3_p:"ИП подаёт подоходный налог с прибыли (доход минус подтверждённые расходы) и платит минимум взносов за год до 31 марта следующего года.",
   tl4_when:"Постоянно следить", tl4_t:"Валютные правила и платёжный канал",
   tl4_p:"Валютная выручка подпадает под правила валютного контроля на белорусской стороне — а на стороне плательщика санкционный скрининг и рабочий банковский маршрут решают, дойдут ли деньги вообще.",
-  mis_h2:"Ставка — это просто. Сложно — заплатить.",
-  mis_sub:"После президентских выборов 2020 года и роли Беларуси во вторжении России в Украину ЕС, США, Великобритания и другие ввели санкции, которые до сих пор определяют любой платёж в страну. Несколько белорусских банков отключены от SWIFT или под полным запретом операций в ЕС; центральный банк ограничен; на белорусской стороне действует валютный контроль. К 2026 году картины расходятся — поэтому что законно именно вам, зависит от того, где находится ваша компания.",
-  mis_us_flag:"США · смягчение", mis_us_t:"Поэтапное послабление с конца 2025",
-  mis_us_p:"США поэтапно снимают меры — например, разрешили операции с рядом ранее ограниченных белорусских банков. Платёж с американской привязкой может оказаться допустимым там, где недавно не был, но это подвижно и с условиями.",
-  mis_eu_flag:"Евросоюз · сохраняет", mis_eu_t:"Ограничения сохранены и расширены",
-  mis_eu_p:"ЕС сохраняет и расширяет меры, превратив отключения от SWIFT в полный запрет операций с названными банками и подконтрольными им (>50%) структурами. Платёж с привязкой к ЕС не тому контрагенту блокируется и может влечь ответственность.",
-  mis_ci:"Практическая проверка готовности перед оплатой подрядчику в Беларуси. Это ориентир, а не юридическая консультация — сверяйтесь с актуальными списками своей юрисдикции.",
-  checks:[
-    "Определите, какой санкционный режим действует для вас — правила задаёт юрисдикция вашей компании (ЕС, США, Великобритания), и сейчас они расходятся",
-    "Проверьте подрядчика и любого посредника или агента по актуальным спискам лиц вашей юрисдикции",
-    "Убедитесь, что банк подрядчика не отключён от SWIFT и не под запретом операций, которым вы связаны",
-    "Проверьте, что сама деятельность или сектор не ограничены (например, товары двойного назначения или отдельные запреты на услуги)",
-    "Обеспечьте платёжный маршрут, который ваш банк или провайдер реально проведёт в Беларусь",
-    "Задокументируйте настоящие независимые подрядные отношения и сохраните подтверждения"
-  ],
-  mis_v0:"Пройдите шаги выше, чтобы оценить, насколько достижим платёж.",
-  mis_vprogress:"Отмечено {n} из {t} — продолжайте; каждый шаг существенно влияет на возможность оплаты.",
-  mis_vdone:"Отмечены все {t}. Это хорошая отправная точка — но перед оплатой всё же сверьтесь с квалифицированным санкционным консультантом, ведь списки часто меняются.",
   cases_eyebrow:"Та же ставка, другой нетто",
   cases_h2:"Случаи, меняющие итоговую цифру",
   cases_sub:"В Беларуси статус и платёжный маршрут важнее номинальной ставки. Вот что двигает результат сильнее всего.",
   case1_t:"Какой статус они выберут", case1_p:"Самозанятый (10% «всё включено»), ИП (20% + небольшой минимум) и компания (20%, затем 13% на дивиденды) не сходятся — при одном доходе нагрузка может идти от 10% до почти 40%. Это главный рычаг на этой странице.", case1_tag:"Большой разброс",
   case2_t:"Счёт иностранному клиенту", case2_p:"Ставка 20% для самозанятого применяется только к доходу от белорусских компаний свыше 60 000 BYN. Доход от иностранного клиента остаётся на плоских 10% — а это и есть случай трансграничного подрядчика.", case2_tag:"Остаётся 10%",
-  case3_t:"Их банк и ваша юрисдикция", case3_p:"Если подрядчик обслуживается в отключённом от SWIFT или подсанкционном банке, плательщик из ЕС может не суметь заплатить независимо от налогов. Плательщик из США — возможно, сможет, по состоянию на 2026. Канал способен перечеркнуть всю арифметику.", case3_tag:"Может блокировать",
-  case4_t:"Резидентство ПВТ", case4_p:"ПВТ долго давал IT-компаниям почти нулевой налог на прибыль и сниженные взносы. Льготы остаются, но сузились, и многие резиденты релоцировались после 2022. Стоит проверить, если подрядчик работает через компанию — резидента ПВТ.", case4_tag:"Может снизить",
+  case3_t:"У самозанятого нет вычета расходов", case3_p:"Ставка 10% для самозанятого берётся с валовой выручки, без вычета затрат. Для работы с большими расходами ИП или компания — облагаемые по прибыли — могут оказаться выгоднее, несмотря на более высокие номинальные ставки.", case3_tag:"Зависит",
+  case4_t:"Резидентство ПВТ", case4_p:"ПВТ долго давал IT-компаниям почти нулевой налог на прибыль и сниженные взносы. Льготы остаются, но в последние годы сузились. Стоит проверить, если подрядчик работает через компанию — резидента ПВТ.", case4_tag:"Может снизить",
   case5_t:"Переход в высокие диапазоны", case5_p:"Личный доход свыше 220 000 BYN (~€62k) в год попадает под 25%, а очень высокий доход ИП может достигать 30%. Заметно выше того, где оказывается типичный подрядчик с одним клиентом, но знать полезно.", case5_tag:"Нетто ↓",
   case6_t:"Тайминг дивидендов", case6_p:"Владельцы компаний раньше использовали ставки 6% или 0% на дивиденды из прибыли, не распределявшейся три или пять лет. Эти льготы сворачиваются, поэтому безопасное допущение при планировании — стандартные 13%.", case6_tag:"Меняется",
-  cta_h2:"Хотите закрыть санкции и платежи, а не только налоги?", cta_btn:"Заказать демо",
-  footer_disc:"Эта страница носит исключительно ознакомительный характер и не является налоговой, юридической, бухгалтерской или санкционно-комплаенс консультацией. Налоговые цифры отражают белорусские правила 2026 года и упрощённые допущения, указанные рядом с каждым расчётом; ставки в последние годы менялись неоднократно. Суммы показаны в евро по индикативному курсу ~3,55 BYN/€ для сравнения, но белорусский налог исчисляется в рублях, и курс меняется. Санкционный обзор — нейтральный общий срез, который часто меняется и различается по юрисдикциям; всегда сверяйте контрагентов с актуальными списками вашего государства и получайте квалифицированную санкционную и налоговую консультацию перед оплатой кому-либо в Беларуси.",
+  cta_h2:"Хотите нанимать в Беларуси под ключ?", cta_btn:"Заказать демо",
+  footer_disc:"Эта страница носит исключительно ознакомительный характер и не является налоговой, юридической, бухгалтерской или санкционно-комплаенс консультацией. Налоговые цифры отражают белорусские правила 2026 года и упрощённые допущения, указанные рядом с каждым расчётом; ставки в последние годы менялись неоднократно. Суммы показаны в евро по индикативному курсу ~3,55 BYN/€ для сравнения, но белорусский налог исчисляется в рублях, и курс меняется. Любое упоминание санкций здесь — нейтральный общий ориентир, который часто меняется и различается по юрисдикциям; всегда сверяйте контрагентов с актуальными списками вашего государства и получайте квалифицированную санкционную и налоговую консультацию перед оплатой кому-либо в Беларуси.",
   faq:[
     {q:"Кто на самом деле платит налоги — компания или подрядчик?",a:"Подрядчик. Белорусский самозанятый, ИП или компания выставляет вам счёт и сам ведёт свои налоги и взносы — самозанятый просто декларирует доход в приложении налоговой и платит 10% со взносами внутри. Ваша задача — оплатить согласованный счёт, но согласованная ставка определяет, что останется после его налогов, поэтому страница показывает обе стороны."},
-    {q:"А мы вообще сможем заплатить подрядчику в Беларуси?",a:"Иногда — при должной осторожности; зависит от вашей юрисдикции и банка подрядчика. Несколько белорусских банков отключены от SWIFT или под полным запретом операций в ЕС, и ЕС сохраняет широкие ограничения, тогда как США смягчают меры с конца 2025. Поэтому плательщик из ЕС и плательщик из США могут получить очень разные ответы по одному подрядчику. Сверьте контрагента и его банк с актуальными списками вашего государства, обеспечьте рабочий маршрут платежа и получите квалифицированную санкционную консультацию перед отправкой средств."},
+    {q:"А мы вообще сможем заплатить подрядчику в Беларуси?",a:"Часто да, но зависит от вашей юрисдикции и банка подрядчика — могут применяться санкционные и платёжные ограничения, и они меняются. Это вопрос комплаенса, отдельный от налоговой картины на этой странице: сверьте контрагента с актуальными списками вашего государства, обеспечьте рабочий маршрут платежа и получите квалифицированную консультацию перед отправкой средств."},
     {q:"Почему ставка самозанятого всего 10%?",a:"Белорусский налог на профессиональный доход для самозанятых — плоские 10% с выручки, куда уже входит взносовая часть, без отдельного учёта расходов. Важно, что доход от иностранных клиентов остаётся на 10% — более высокая ставка 20% применяется только к доходу от белорусских компаний свыше 60 000 BYN в год. Для одиночки, выставляющего счета за рубеж, это с большим отрывом самый простой и дешёвый статус."},
     {q:"В чём разница между самозанятым, ИП и ООО?",a:"Самозанятый — физлицо на 10% налоге на профдоход: проще и дешевле всего, идеально для одиночки. ИП платит 20% подоходного с прибыли плюс небольшой фиксированный минимум взносов и подходит тем, у кого есть реальные расходы или деятельность, не покрытая режимом самозанятого. ООО — компания: 20% налога на прибыль, затем 13% на дивиденды, плюс директор и бухгалтерия — подходит для масштаба, но несёт самую высокую эффективную нагрузку здесь."},
     {q:"А что с Парком высоких технологий?",a:"ПВТ — специальный IT-режим Беларуси, исторически дававший компаниям-резидентам почти нулевой налог на прибыль, льготы по НДС и сниженные взносы, считаемые от средней зарплаты по стране, а не от полной. Он действует и сейчас с рядом льгот, хотя некоторые сузились после 2025, а многие резиденты релоцировались после 2022. Если подрядчик работает через компанию — резидента ПВТ, цифры могут быть заметно ниже — стоит уточнять индивидуально."},
@@ -848,7 +764,7 @@ const I18N = {
 };
 
 /* init */
-applyI18n(); buildChecklist(); buildFaq(); setRegime('npd'); calc();
+applyI18n(); buildFaq(); setRegime('npd'); calc();
 </script>
 </body>
 </html>

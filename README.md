@@ -2,9 +2,9 @@
 
 A self-contained landing page explaining what a contractor in Belarus actually
 keeps, with a live gross-to-net calculator across the three realistic statuses —
-plus a neutral, factual briefing on the part that usually matters more than tax:
-**sanctions and payment feasibility**. EN / RU toggle. Same design system as the
-Romania, Spain and Serbia pages in this series.
+plus a short compliance note flagging that sanctions and payment feasibility sit
+outside the tax picture and must be checked separately. EN / RU toggle. Same
+design system as the Romania, Spain and Serbia pages in this series.
 
 ## Files
 - `index.html` — the entire page (HTML + CSS + JS, no build step, no dependencies)
@@ -52,12 +52,13 @@ Three statuses (tabs):
 Both directions work: enter an invoice to see the net, or a target net to solve
 for the invoice (60-step binary search).
 
-The **sanctions & payments** section is a neutral briefing, not a scored test:
-a US/EU divergence panel plus a practical six-step readiness checklist (screen
-your jurisdiction, screen the counterparty and their bank, confirm a working
-rail, etc.). The checklist just counts confirmed steps — it deliberately does
-**not** render a red/green "risk verdict", because trivialising sanctions
-exposure would be the wrong call.
+Sanctions and payments are handled by a single short **note** near the top of the
+page ("Before you pay"), not a full section: it flags that sanctions and payment-
+rail restrictions may apply, differ by jurisdiction and change often, and that
+this is a compliance question separate from the tax picture. A one-line reminder
+also appears in the hero and in the FAQ. (An earlier version had a full section
+with a US/EU divergence panel and an interactive readiness checklist; that was
+deliberately compressed to keep the page focused on the tax calculator.)
 
 ## Updating the numbers each year
 
@@ -76,13 +77,13 @@ You should not need to touch the engine or layout for a yearly figures refresh.
 
 ## Honest caveats (read these — Belarus needs them more than the others)
 
-- **Sanctions and payment feasibility usually dominate the tax result.** A clean
-  10% calculation is meaningless if you can't legally or practically send the
-  money. The briefing is a *neutral, high-level snapshot as of 2026* and it
-  changes fast; the US has been easing since late 2025 while the EU has not.
-  **Screen every counterparty against your own government's current lists and
-  take qualified sanctions advice before paying anyone in Belarus.** This page is
-  not sanctions-compliance advice.
+- **Sanctions and payment feasibility can override the tax result.** A clean 10%
+  calculation is meaningless if you can't legally or practically send the money.
+  The page now only flags this in a short note by design — but the substance still
+  matters: restrictions differ by jurisdiction and change fast. **Screen every
+  counterparty against your own government's current lists and take qualified
+  sanctions advice before paying anyone in Belarus.** This page is not
+  sanctions-compliance advice.
 - **Belarusian tax rates have changed repeatedly** (the simplified system for
   entrepreneurs was abolished in 2023; the self-employed НПД was introduced in
   2023; personal, dividend and profit rates have all moved since). Treat the
