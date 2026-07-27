@@ -141,6 +141,8 @@
   .note-ico{font-size:1.3rem;line-height:1.2}
   .note strong{font-size:1rem;display:block;margin-bottom:6px}
   .note p{font-size:.9rem;color:#3a3a3a;line-height:1.55;max-width:82ch}
+  .ipwarn{grid-column:1/-1;background:#FFF1E8;color:#B23e00;border-radius:10px;padding:12px 15px;
+    font-size:.82rem;font-weight:600;line-height:1.45;margin-top:-6px}
   .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
   .case{background:var(--grey);border-radius:var(--radius);padding:24px;border:1px solid transparent;transition:border-color .14s}
   .case:hover{border-color:var(--grey-line)}
@@ -199,10 +201,6 @@
       <a href="#faq" data-i18n="nav_faq">FAQ</a>
     </div>
     <div class="nav-right">
-      <div class="lang">
-        <button id="lang-en" class="on" onclick="setLang('en')">EN</button>
-        <button id="lang-ru" onclick="setLang('ru')">RU</button>
-      </div>
       <a class="btn btn-orange" href="#cta"><span data-i18n="nav_demo">Book a demo</span><i>→</i></a>
     </div>
   </nav>
@@ -222,7 +220,7 @@
       <div class="fact"><div class="n">10%</div><div class="l" data-i18n="fact1">self-employed tax — and social contributions are already included</div></div>
       <div class="fact"><div class="n">20%</div><div class="l" data-i18n="fact2">flat income tax for a registered entrepreneur, on profit</div></div>
       <div class="fact"><div class="n">20% → 13%</div><div class="l" data-i18n="fact3">company profit tax, then again on dividends</div></div>
-      <div class="fact"><div class="n">≈€860</div><div class="l" data-i18n="fact4">fixed yearly social-contribution floor for an entrepreneur, whatever they earn</div></div>
+      <div class="fact"><div class="n">≈€840</div><div class="l" data-i18n="fact4">fixed yearly social-contribution floor for an entrepreneur, whatever they earn</div></div>
     </div>
   </div>
 </section>
@@ -245,7 +243,7 @@
         </button>
         <button class="regime" data-regime="ip" onclick="setRegime('ip')">
           <div class="rt" data-i18n="reg_ip_t">Entrepreneur (IP)</div>
-          <div class="rd" data-i18n="reg_ip_d">20% income tax + contributions</div>
+          <div class="rd" data-i18n="reg_ip_d">20% on profit · limited from 2026</div>
         </button>
         <button class="regime" data-regime="ooo" onclick="setRegime('ooo')">
           <div class="rt" data-i18n="reg_ooo_t">OOO company</div>
@@ -276,6 +274,7 @@
           <div class="in"><span>€</span><input id="exp" type="text" inputmode="numeric" value="4000" /></div>
           <div class="hint" data-i18n="in_exp_hint">The entrepreneur and company routes tax real profit, so expenses reduce the bill. Self-employed tax is a flat 10% of revenue with no expense deduction.</div>
         </div>
+        <div class="ipwarn hidden" id="ipwarn" data-i18n="ipwarn">From 1 January 2026, IP status is limited to a defined list of permitted activities (Resolution 457). Many services — including much IT and consulting — are no longer allowed as an IP and must use an OOO instead. Check the activity against the list before assuming this route is open.</div>
       </div>
 
       <div class="result">
@@ -314,7 +313,7 @@
       <div class="tcard c-irpf">
         <div class="big">10–20%</div>
         <h3 data-i18n="how_irpf_t">Income tax — low and mostly flat</h3>
-        <p data-i18n="how_irpf_p">Self-employment is taxed at 10%, standard personal income and dividends at 13%, and entrepreneurs and companies at 20%. A 25% band applies to personal income above 220,000 BYN (~€62k) a year — high enough that most contractors never reach it.</p>
+        <p data-i18n="how_irpf_p">Self-employment is taxed at 10%, standard personal income and dividends at 13%, and entrepreneurs and companies at 20%. A 25% super-income band applies to personal income above 350,000 BYN (~€99k) a year (30% at the very top; dividends cap at 25%) — high enough that most contractors never reach it.</p>
         <div class="mini">
           <div class="r"><span data-i18n="how_irpf_r1">Self-employed</span><span>10%</span></div>
           <div class="r"><span data-i18n="how_irpf_r2">Entrepreneur / company</span><span>20%</span></div>
@@ -324,10 +323,10 @@
       <div class="tcard c-soc">
         <div class="big">35%</div>
         <h3 data-i18n="how_soc_t">Contributions — but on a low floor</h3>
-        <p data-i18n="how_soc_p">Social contributions (ФСЗН) are 35%, but a solo entrepreneur pays them on a minimum base of just 12× the monthly minimum wage — roughly €860 a year — not on full income. The self-employed rate has them baked in already.</p>
+        <p data-i18n="how_soc_p">Social contributions (ФСЗН) are charged not on full income but on a minimum base of just 12× the monthly minimum wage — a fixed floor of roughly €840 a year for a solo entrepreneur (about 29% pension, up to 35% combined). The self-employed rate has them baked in already.</p>
         <div class="mini">
-          <div class="r"><span data-i18n="how_soc_r1">Pension + social</span><span>35%</span></div>
-          <div class="r"><span data-i18n="how_soc_r2">Entrepreneur floor</span><span>≈€860/yr</span></div>
+          <div class="r"><span data-i18n="how_soc_r1">Pension (min)</span><span>≈29%</span></div>
+          <div class="r"><span data-i18n="how_soc_r2">Entrepreneur floor</span><span>≈€840/yr</span></div>
           <div class="r"><span data-i18n="how_soc_r3">Self-employed</span><span data-i18n="how_soc_r3v">included</span></div>
         </div>
       </div>
@@ -413,13 +412,13 @@
       <div class="case">
         <div class="ico">📈</div>
         <h3 data-i18n="case5_t">Crossing the high-income bands</h3>
-        <p data-i18n="case5_p">Personal income over 220,000 BYN (~€62k) a year meets a 25% rate, and very high entrepreneur income can reach 30%. Comfortably above where a typical single-client contractor lands, but worth knowing at the top end.</p>
+        <p data-i18n="case5_p">Aggregate personal income over 350,000 BYN (~€99k) a year meets a 25% super-income rate, rising to 30% at the very top (dividends are capped at 25%). Comfortably above where a typical single-client contractor lands, but worth knowing at the top end.</p>
         <span class="tag down" data-i18n="case5_tag">Net ↓</span>
       </div>
       <div class="case">
         <div class="ico">💸</div>
         <h3 data-i18n="case6_t">Dividend timing</h3>
-        <p data-i18n="case6_p">Company owners once used 6% or 0% dividend rates for profit left undistributed for three or five years. Those reliefs are being phased out, so the 13% standard rate is the safe planning assumption now.</p>
+        <p data-i18n="case6_p">Company owners once used a reduced 6% dividend rate for profit left undistributed for three years (and 0% for five). The 6% rate was abolished for 2026, so the 13% standard rate is the safe planning assumption now.</p>
         <span class="tag flat" data-i18n="case6_tag">Changing</span>
       </div>
     </div>
@@ -463,17 +462,17 @@
    indicative EUR/BYN rate.  Rates here have changed often — verify.
    ============================================================ */
 const BYN_PER_EUR = 3.55;          // indicative 2026 rate
-const MZP_BYN = 726;               // monthly minimum wage (МЗП)
+const MZP_BYN = 858;               // monthly minimum wage (МЗП), 2026
 const TAX = {
   year: 2026,
   npd: { rate: 0.10 },             // self-employed, all-in (incl. ФСЗН); foreign-client income stays 10%
   ip:  {
     rate: 0.20,                    // entrepreneur income tax on profit
     // ФСЗН floor: 35% on a minimum base of 12 monthly minimum wages
-    fsznFloorEUR: (12 * MZP_BYN * 0.35) / BYN_PER_EUR
+    fsznFloorEUR: (12 * MZP_BYN * 0.29) / BYN_PER_EUR  // ~29% pension on a 12-МЗП min base
   },
   ooo: { corpRate: 0.20, dividendRate: 0.13 },
-  highBandBYN: 220000              // 25% personal band above this (not modelled in base calc)
+  highBandBYN: 350000              // 25% super-income band above this, 2026 (not modelled in base calc)
 };
 
 /* ---- engine: gross invoiced -> breakdown ---- */
@@ -519,13 +518,12 @@ const byn  = eur => Math.round(eur*BYN_PER_EUR).toLocaleString('de-DE')+' BYN';
 const parseNum = s => parseFloat((s||'').toString().replace(/[^\d.]/g,'')) || 0;
 
 function setLang(l){ LANG=l; document.documentElement.lang=l;
-  document.getElementById('lang-en').classList.toggle('on', l==='en');
-  document.getElementById('lang-ru').classList.toggle('on', l==='ru');
   applyI18n(); buildFaq(); calc();
 }
 function setRegime(r){ regime=r;
   document.querySelectorAll('.regime').forEach(b=>b.classList.toggle('on', b.dataset.regime===r));
   document.getElementById('field-exp').classList.toggle('hidden', r==='npd');
+  document.getElementById('ipwarn').classList.toggle('hidden', r!=='ip');
   calc();
 }
 function setDir(d){ dir=d;
@@ -625,7 +623,8 @@ const I18N = {
   calc_h2:"Same invoice. Three very different bills.",
   calc_sub:"The self-employed route is strikingly cheap; a company is not. Pick a status, type the yearly amount, and see what actually lands.",
   reg_npd_t:"Self-employed", reg_npd_d:"Professional income tax — 10% all-in",
-  reg_ip_t:"Entrepreneur (IP)", reg_ip_d:"20% income tax + contributions",
+  reg_ip_t:"Entrepreneur (IP)", reg_ip_d:"20% on profit · limited from 2026",
+  ipwarn:"From 1 January 2026, IP status is limited to a defined list of permitted activities (Resolution 457). Many services — including much IT and consulting — are no longer allowed as an IP and must use an OOO instead. Check the activity against the list before assuming this route is open.",
   reg_ooo_t:"OOO company", reg_ooo_d:"Profit tax + dividends",
   dir_gross:"I know the invoice", dir_net:"I want a target net",
   in_gross:"Annual amount you'll invoice / pay (€)",
@@ -641,18 +640,18 @@ const I18N = {
   r_soc:"Social contributions (ФСЗН floor)", r_tax:"Income tax (20%)",
   r_exp:"Deductible expenses", r_corp:"Profit tax (20%)", r_div:"Dividend tax (13%)",
   r_net:"Net in pocket / year",
-  assume_npd:"Self-employed (professional income tax): a flat 10% of revenue that already includes social contributions, with no expense deduction. Income from foreign clients stays at 10% — the 20% band applies only to income from Belarusian companies above 60,000 BYN. Not tax advice.",
-  assume_ip:"Entrepreneur (IP), simplified: 20% income tax on profit (revenue minus expenses), plus the ФСЗН social-contribution floor of 35% on a minimum base of 12 monthly minimum wages (~€860/yr). A higher 30% band applies to very high entrepreneur income. Not tax advice.",
-  assume_ooo:"OOO (company), simplified: 20% profit tax, then 13% on distributed dividends. Excludes a director's salary and contributions and accounting fees, the 25% personal band above 220,000 BYN, and any High-Tech Park relief. A real company's burden differs. Not tax advice.",
+  assume_npd:"Self-employed (professional income tax): a flat 10% of revenue that already includes social contributions, with no expense deduction. Income from foreign clients stays at 10% — the 20% band applies only to income from Belarusian companies above 60,000 BYN. From 1 July 2026 a minimum tax of 45 BYN/month applies even with no income. Not tax advice.",
+  assume_ip:"Entrepreneur (IP): note that from 1 January 2026 IP status is restricted to a list of permitted activities (Resolution 457) — many services must use an OOO instead. Where still available: 20% income tax on profit (revenue minus expenses), plus a fixed ФСЗН social-contribution floor charged on a minimum base of 12× the minimum wage (~€840/yr), not on income. A higher 30% band applies to very high entrepreneur income. Not tax advice.",
+  assume_ooo:"OOO (company), simplified: 20% profit tax, then 13% on distributed dividends. Excludes a director's salary and contributions and accounting fees, the 25% super-income band above 350,000 BYN, and any High-Tech Park relief. A real company's burden differs. Not tax advice.",
   how_eyebrow:"The system, in three charges",
   how_h2:"Low, flat tax — and contributions that stay small.",
   how_sub:"Belarus taxes personal income at a flat 13%, self-employment at 10%, and entrepreneurs and companies at 20%. Social contributions are nominally high but, for solo workers, sit on a low fixed floor — or are folded into the self-employed rate entirely.",
   how_irpf_t:"Income tax — low and mostly flat",
-  how_irpf_p:"Self-employment is taxed at 10%, standard personal income and dividends at 13%, and entrepreneurs and companies at 20%. A 25% band applies to personal income above 220,000 BYN (~€62k) a year — high enough that most contractors never reach it.",
+  how_irpf_p:"Self-employment is taxed at 10%, standard personal income and dividends at 13%, and entrepreneurs and companies at 20%. A 25% super-income band applies to personal income above 350,000 BYN (~€99k) a year (30% at the very top; dividends cap at 25%) — high enough that most contractors never reach it.",
   how_irpf_r1:"Self-employed", how_irpf_r2:"Entrepreneur / company", how_irpf_r3:"Dividends",
   how_soc_t:"Contributions — but on a low floor",
-  how_soc_p:"Social contributions (ФСЗН) are 35%, but a solo entrepreneur pays them on a minimum base of just 12× the monthly minimum wage — roughly €860 a year — not on full income. The self-employed rate has them baked in already.",
-  how_soc_r1:"Pension + social", how_soc_r2:"Entrepreneur floor", how_soc_r3:"Self-employed", how_soc_r3v:"included",
+  how_soc_p:"Social contributions (ФСЗН) are charged not on full income but on a minimum base of just 12× the monthly minimum wage — a fixed floor of roughly €840 a year for a solo entrepreneur (about 29% pension, up to 35% combined). The self-employed rate has them baked in already.",
+  how_soc_r1:"Pension (min)", how_soc_r2:"Entrepreneur floor", how_soc_r3:"Self-employed", how_soc_r3v:"included",
   how_iva_t:"VAT — usually not your problem",
   how_iva_p:"Standard VAT is 20%, but the self-employed regime sits outside VAT, and services exported to a foreign client are generally zero-rated or out of scope. It rarely touches a solo contractor billing abroad.",
   how_iva_r1:"Standard rate", how_iva_r2:"Reduced", how_iva_r3:"Exported services", how_iva_r3v:"0% / outside",
@@ -672,95 +671,19 @@ const I18N = {
   case2_t:"Billing a foreign client", case2_p:"The self-employed 20% band only applies to income from Belarusian companies above 60,000 BYN. Income from a foreign client stays at the flat 10% — which is exactly the cross-border contractor case.", case2_tag:"Stays 10%",
   case3_t:"No expense deduction if self-employed", case3_p:"The 10% self-employed rate is charged on gross revenue, with no deduction for costs. For work with heavy expenses, an entrepreneur or company — taxed on profit — can come out ahead despite the higher headline rates.", case3_tag:"Depends",
   case4_t:"High-Tech Park (ПВТ) residency", case4_p:"The HTP long gave IT companies near-zero profit tax and reduced contributions. Preferences remain but have narrowed in recent years. Still worth checking if the contractor operates through an HTP company.", case4_tag:"Can lower",
-  case5_t:"Crossing the high-income bands", case5_p:"Personal income over 220,000 BYN (~€62k) a year meets a 25% rate, and very high entrepreneur income can reach 30%. Comfortably above where a typical single-client contractor lands, but worth knowing at the top end.", case5_tag:"Net ↓",
-  case6_t:"Dividend timing", case6_p:"Company owners once used 6% or 0% dividend rates for profit left undistributed for three or five years. Those reliefs are being phased out, so the 13% standard rate is the safe planning assumption now.", case6_tag:"Changing",
+  case5_t:"Crossing the high-income bands", case5_p:"Aggregate personal income over 350,000 BYN (~€99k) a year meets a 25% super-income rate, rising to 30% at the very top (dividends are capped at 25%). Comfortably above where a typical single-client contractor lands, but worth knowing at the top end.", case5_tag:"Net ↓",
+  case6_t:"Dividend timing", case6_p:"Company owners once used a reduced 6% dividend rate for profit left undistributed for three years (and 0% for five). The 6% rate was abolished for 2026, so the 13% standard rate is the safe planning assumption now.", case6_tag:"Changing",
   cta_h2:"Want hiring in Belarus handled end to end?", cta_btn:"Book a demo",
   footer_disc:"This page is for general information only and is not tax, legal, accounting or sanctions-compliance advice. Tax figures reflect the 2026 Belarusian rules and simplified assumptions stated next to each calculation; rates have changed repeatedly in recent years. Amounts are shown in euros at an indicative ~3.55 BYN/€ for comparison, but Belarusian tax is assessed in rubles and the rate moves. Any note on sanctions here is a neutral, high-level pointer that changes frequently and differs by jurisdiction — always screen counterparties against your own government's current lists and take qualified sanctions and tax advice before paying anyone in Belarus.",
   faq:[
     {q:"Who actually pays the taxes — the company or the contractor?",a:"The contractor. A Belarusian self-employed person, entrepreneur or company invoices you and handles their own tax and contributions — the self-employed simply declare income in the tax app and pay 10%, contributions included. Your job is to pay the agreed invoice, but the rate you agree sets what's left after their taxes, so this page shows both sides."},
     {q:"Can we even pay a contractor in Belarus?",a:"Often yes, but it depends on your jurisdiction and the contractor's bank — sanctions and payment-rail restrictions can apply, and they change. That's a compliance question separate from the tax picture on this page: screen the counterparty against your own government's current lists, confirm a working payment route, and take qualified advice before sending anything."},
     {q:"Why is the self-employed rate only 10%?",a:"Belarus's professional income tax for the self-employed is a flat 10% of revenue that already bundles the social-contribution component, with no separate expense accounting. Crucially, income earned from foreign clients stays at 10% — the higher 20% band applies only to income received from Belarusian companies above 60,000 BYN a year. For a solo contractor billing abroad, that makes it the simplest and cheapest status by a wide margin."},
-    {q:"What's the difference between self-employed, an IP and an OOO?",a:"Self-employed is an individual on the 10% professional income tax — simplest and cheapest, best for a solo contractor. An IP (individual entrepreneur) pays 20% income tax on profit plus a small fixed social-contribution floor, and suits someone with real business expenses or activities the self-employed regime doesn't cover. An OOO is a limited company — 20% profit tax then 13% on dividends, plus a director and accounting — which suits scale but carries the heaviest effective burden here."},
+    {q:"What's the difference between self-employed, an IP and an OOO?",a:"Self-employed is an individual on the 10% professional income tax — simplest and cheapest, best for a solo contractor. An IP (individual entrepreneur) pays 20% income tax on profit plus a small fixed social-contribution floor — but note that since 1 January 2026 IP status is limited to a list of permitted activities (Resolution 457), and many services must now use an OOO instead. An OOO is a limited company — 20% profit tax then 13% on dividends, plus a director and accounting — which suits scale, and is increasingly the default where IP is no longer allowed."},
     {q:"What about the High-Tech Park?",a:"The HTP is Belarus's special IT regime, historically offering resident companies near-zero profit tax, VAT relief and reduced social contributions calculated on the national average wage rather than full salary. It remains in place with some preferences, though several have narrowed since 2025 and many residents relocated after 2022. If a contractor operates through an HTP-resident company the numbers can be materially lower — worth confirming case by case."},
-    {q:"How current are the numbers, and why euros?",a:"They reflect the 2026 Belarusian parameters: 10% self-employed tax, 20% entrepreneur and company profit tax, 13% dividends, a 25% personal band above 220,000 BYN, and the ФСЗН contribution floor. Belarusian rates have changed repeatedly in recent years, so treat these as an informed snapshot. Tax is assessed in rubles; we show euros at an indicative ~3.55 BYN/€ purely to compare with the other country pages. Confirm current figures with a Belarusian adviser — and the sanctions position separately, since it moves fastest of all."}
+    {q:"How current are the numbers, and why euros?",a:"They reflect the 2026 Belarusian parameters: 10% self-employed tax, 20% entrepreneur and company profit tax, 13% dividends, a 25% super-income band above 350,000 BYN, and the ФСЗН contribution floor. Belarusian rates have changed repeatedly in recent years, so treat these as an informed snapshot. Tax is assessed in rubles; we show euros at an indicative ~3.55 BYN/€ purely to compare with the other country pages. Confirm current figures with a Belarusian adviser — and the sanctions position separately, since it moves fastest of all."}
   ]
  },
- ru: {
-  nav_calc:"Калькулятор", nav_how:"Как это работает",
-  nav_cases:"Особые случаи", nav_faq:"Вопросы", nav_demo:"Заказать демо",
-  hero_eyebrow:"Беларусь · Гид по налогам для подрядчиков · 2026",
-  hero_h1a:"Нанимаете в Беларуси?", hero_h1b:"Вот куда ", hero_h1c:"реально уходят деньги.",
-  hero_lead:"В Беларуси одни из самых низких налогов на подрядчиков в регионе — самозанятый оставляет себе 90% выставленного счёта. Выберите статус, посчитайте и посмотрите, что реально останется. (Одну вещь стоит проверить заранее: санкции и платёжные правила могут влиять на то, как платить.)",
-  hero_btn1:"Посчитать", hero_btn2:"Как это устроено",
-  note_h:"Перед оплатой",
-  note_p:"При оплате в Беларусь могут применяться санкционные и платёжные ограничения — они зависят от юрисдикции и часто меняются. Это вне налоговой картины ниже: проверьте контрагента и комплаенс в своей юрисдикции, прежде чем брать обязательства.",
-  fact1:"налог самозанятого — и страховые взносы уже включены",
-  fact2:"плоский подоходный для ИП, на прибыль",
-  fact3:"налог на прибыль компании, затем ещё раз на дивиденды",
-  fact4:"фиксированный годовой минимум взносов для ИП — независимо от дохода",
-  calc_h2:"Один счёт. Три очень разных результата.",
-  calc_sub:"Режим самозанятого поразительно дёшев; компания — нет. Выберите статус, введите годовую сумму и посмотрите, что реально останется.",
-  reg_npd_t:"Самозанятый", reg_npd_d:"Налог на профдоход — 10% «всё включено»",
-  reg_ip_t:"ИП", reg_ip_d:"Подоходный 20% + взносы",
-  reg_ooo_t:"ООО", reg_ooo_d:"Налог на прибыль + дивиденды",
-  dir_gross:"Знаю сумму счёта", dir_net:"Хочу целевой нетто",
-  in_gross:"Годовая сумма счёта / выплаты (€)",
-  in_net:"Целевой годовой нетто для подрядчика (€)",
-  in_net_hint:"Подберём сумму счёта, при которой на руках останется этот нетто.",
-  in_exp:"Учитываемые расходы (€ / год)",
-  in_exp_hint:"Режимы ИП и ООО облагают реальную прибыль, поэтому расходы уменьшают счёт. Налог самозанятого — плоские 10% с выручки без вычета расходов.",
-  per_month:"нетто в месяц", eff_rate:"эффективная ставка",
-  byn_suffix:" по счёту",
-  l_net:"Нетто на руки", l_tax:"Налог", l_soc:"Взносы (минимум)",
-  l_corp:"Налог на прибыль", l_div:"Налог на дивиденды", l_exp:"Расходы",
-  r_gross:"Сумма счёта", r_npd:"Налог на профдоход (10%, взносы включены)",
-  r_soc:"Страховые взносы (минимум ФСЗН)", r_tax:"Подоходный налог (20%)",
-  r_exp:"Учитываемые расходы", r_corp:"Налог на прибыль (20%)", r_div:"Налог на дивиденды (13%)",
-  r_net:"Нетто на руки / год",
-  assume_npd:"Самозанятый (налог на профдоход): плоские 10% с выручки, куда уже включены страховые взносы, без вычета расходов. Доход от иностранных клиентов остаётся на 10% — ставка 20% применяется только к доходу от белорусских организаций свыше 60 000 BYN. Не является налоговой консультацией.",
-  assume_ip:"ИП, упрощённо: 20% подоходного налога с прибыли (выручка минус расходы), плюс минимум взносов в ФСЗН — 35% от базы в 12 минимальных зарплат (~€860/год). К очень высокому доходу ИП применяется ставка 30%. Не является налоговой консультацией.",
-  assume_ooo:"ООО, упрощённо: 20% налога на прибыль, затем 13% на распределённые дивиденды. Не учтены зарплата и взносы директора, бухгалтерия, ставка 25% на личный доход свыше 220 000 BYN и льготы ПВТ. Реальная нагрузка ООО отличается. Не является налоговой консультацией.",
-  how_eyebrow:"Система из трёх платежей",
-  how_h2:"Низкий плоский налог — и небольшие взносы.",
-  how_sub:"Личный доход в Беларуси облагается плоскими 13%, самозанятость — 10%, ИП и компании — 20%. Взносы номинально высоки, но для одиночек считаются от низкой фиксированной базы — или уже включены в ставку самозанятого.",
-  how_irpf_t:"Подоходный — низкий и почти плоский",
-  how_irpf_p:"Самозанятость облагается 10%, обычный личный доход и дивиденды — 13%, ИП и компании — 20%. Ставка 25% применяется к личному доходу свыше 220 000 BYN (~€62k) в год — достаточно высоко, чтобы большинство подрядчиков её не достигали.",
-  how_irpf_r1:"Самозанятый", how_irpf_r2:"ИП / компания", how_irpf_r3:"Дивиденды",
-  how_soc_t:"Взносы — но от низкой базы",
-  how_soc_p:"Взносы в ФСЗН — 35%, но ИП-одиночка платит их от минимальной базы всего в 12 минимальных зарплат — около €860 в год, — а не со всего дохода. В ставке самозанятого они уже учтены.",
-  how_soc_r1:"Пенсия + соцстрах", how_soc_r2:"Минимум для ИП", how_soc_r3:"Самозанятый", how_soc_r3v:"включено",
-  how_iva_t:"НДС — обычно не ваша забота",
-  how_iva_p:"Стандартный НДС — 20%, но режим самозанятого вне НДС, а услуги на экспорт иностранному клиенту, как правило, облагаются 0% или вне периметра. Одиночку, выставляющего счета за рубеж, это почти не касается.",
-  how_iva_r1:"Стандартная ставка", how_iva_r2:"Пониженная", how_iva_r3:"Экспорт услуг", how_iva_r3v:"0% / вне",
-  tl_title:"Год из жизни налогов белорусского подрядчика",
-  tl1_when:"День 1", tl1_t:"Выбрать статус и зарегистрироваться",
-  tl1_p:"Самозанятость оформляется в приложении налоговой за минуты; ИП или ООО регистрируются в налоговой / регистрирующем органе. Статус определяет всё дальнейшее.",
-  tl2_when:"Ежемесячно (самозанятый)", tl2_t:"Задекларировать доход, заплатить 10% в приложении",
-  tl2_p:"Приложение самозанятого считает 10% с заявленных поступлений — со взносами внутри — и вы платите там же. Доход от иностранного клиента остаётся на 10%; ставка 20% касается лишь дохода от белорусских компаний свыше 60 000 BYN.",
-  tl3_when:"Ежегодно (ИП)", tl3_t:"Подать подоходный, закрыть ФСЗН до 31 марта",
-  tl3_p:"ИП подаёт подоходный налог с прибыли (доход минус подтверждённые расходы) и платит минимум взносов за год до 31 марта следующего года.",
-  tl4_when:"Постоянно следить", tl4_t:"Валютные правила и платёжный канал",
-  tl4_p:"Валютная выручка подпадает под правила валютного контроля на белорусской стороне — а на стороне плательщика санкционный скрининг и рабочий банковский маршрут решают, дойдут ли деньги вообще.",
-  cases_eyebrow:"Та же ставка, другой нетто",
-  cases_h2:"Случаи, меняющие итоговую цифру",
-  cases_sub:"В Беларуси статус и платёжный маршрут важнее номинальной ставки. Вот что двигает результат сильнее всего.",
-  case1_t:"Какой статус они выберут", case1_p:"Самозанятый (10% «всё включено»), ИП (20% + небольшой минимум) и компания (20%, затем 13% на дивиденды) не сходятся — при одном доходе нагрузка может идти от 10% до почти 40%. Это главный рычаг на этой странице.", case1_tag:"Большой разброс",
-  case2_t:"Счёт иностранному клиенту", case2_p:"Ставка 20% для самозанятого применяется только к доходу от белорусских компаний свыше 60 000 BYN. Доход от иностранного клиента остаётся на плоских 10% — а это и есть случай трансграничного подрядчика.", case2_tag:"Остаётся 10%",
-  case3_t:"У самозанятого нет вычета расходов", case3_p:"Ставка 10% для самозанятого берётся с валовой выручки, без вычета затрат. Для работы с большими расходами ИП или компания — облагаемые по прибыли — могут оказаться выгоднее, несмотря на более высокие номинальные ставки.", case3_tag:"Зависит",
-  case4_t:"Резидентство ПВТ", case4_p:"ПВТ долго давал IT-компаниям почти нулевой налог на прибыль и сниженные взносы. Льготы остаются, но в последние годы сузились. Стоит проверить, если подрядчик работает через компанию — резидента ПВТ.", case4_tag:"Может снизить",
-  case5_t:"Переход в высокие диапазоны", case5_p:"Личный доход свыше 220 000 BYN (~€62k) в год попадает под 25%, а очень высокий доход ИП может достигать 30%. Заметно выше того, где оказывается типичный подрядчик с одним клиентом, но знать полезно.", case5_tag:"Нетто ↓",
-  case6_t:"Тайминг дивидендов", case6_p:"Владельцы компаний раньше использовали ставки 6% или 0% на дивиденды из прибыли, не распределявшейся три или пять лет. Эти льготы сворачиваются, поэтому безопасное допущение при планировании — стандартные 13%.", case6_tag:"Меняется",
-  cta_h2:"Хотите нанимать в Беларуси под ключ?", cta_btn:"Заказать демо",
-  footer_disc:"Эта страница носит исключительно ознакомительный характер и не является налоговой, юридической, бухгалтерской или санкционно-комплаенс консультацией. Налоговые цифры отражают белорусские правила 2026 года и упрощённые допущения, указанные рядом с каждым расчётом; ставки в последние годы менялись неоднократно. Суммы показаны в евро по индикативному курсу ~3,55 BYN/€ для сравнения, но белорусский налог исчисляется в рублях, и курс меняется. Любое упоминание санкций здесь — нейтральный общий ориентир, который часто меняется и различается по юрисдикциям; всегда сверяйте контрагентов с актуальными списками вашего государства и получайте квалифицированную санкционную и налоговую консультацию перед оплатой кому-либо в Беларуси.",
-  faq:[
-    {q:"Кто на самом деле платит налоги — компания или подрядчик?",a:"Подрядчик. Белорусский самозанятый, ИП или компания выставляет вам счёт и сам ведёт свои налоги и взносы — самозанятый просто декларирует доход в приложении налоговой и платит 10% со взносами внутри. Ваша задача — оплатить согласованный счёт, но согласованная ставка определяет, что останется после его налогов, поэтому страница показывает обе стороны."},
-    {q:"А мы вообще сможем заплатить подрядчику в Беларуси?",a:"Часто да, но зависит от вашей юрисдикции и банка подрядчика — могут применяться санкционные и платёжные ограничения, и они меняются. Это вопрос комплаенса, отдельный от налоговой картины на этой странице: сверьте контрагента с актуальными списками вашего государства, обеспечьте рабочий маршрут платежа и получите квалифицированную консультацию перед отправкой средств."},
-    {q:"Почему ставка самозанятого всего 10%?",a:"Белорусский налог на профессиональный доход для самозанятых — плоские 10% с выручки, куда уже входит взносовая часть, без отдельного учёта расходов. Важно, что доход от иностранных клиентов остаётся на 10% — более высокая ставка 20% применяется только к доходу от белорусских компаний свыше 60 000 BYN в год. Для одиночки, выставляющего счета за рубеж, это с большим отрывом самый простой и дешёвый статус."},
-    {q:"В чём разница между самозанятым, ИП и ООО?",a:"Самозанятый — физлицо на 10% налоге на профдоход: проще и дешевле всего, идеально для одиночки. ИП платит 20% подоходного с прибыли плюс небольшой фиксированный минимум взносов и подходит тем, у кого есть реальные расходы или деятельность, не покрытая режимом самозанятого. ООО — компания: 20% налога на прибыль, затем 13% на дивиденды, плюс директор и бухгалтерия — подходит для масштаба, но несёт самую высокую эффективную нагрузку здесь."},
-    {q:"А что с Парком высоких технологий?",a:"ПВТ — специальный IT-режим Беларуси, исторически дававший компаниям-резидентам почти нулевой налог на прибыль, льготы по НДС и сниженные взносы, считаемые от средней зарплаты по стране, а не от полной. Он действует и сейчас с рядом льгот, хотя некоторые сузились после 2025, а многие резиденты релоцировались после 2022. Если подрядчик работает через компанию — резидента ПВТ, цифры могут быть заметно ниже — стоит уточнять индивидуально."},
-    {q:"Насколько цифры актуальны и почему в евро?",a:"Они отражают белорусские параметры 2026 года: 10% для самозанятых, 20% подоходного для ИП и налога на прибыль компаний, 13% на дивиденды, диапазон 25% для личного дохода свыше 220 000 BYN и минимум взносов в ФСЗН. Белорусские ставки в последние годы менялись неоднократно, поэтому считайте это обоснованным срезом. Налог исчисляется в рублях; евро показаны по индикативному ~3,55 BYN/€ лишь для сравнения с другими страницами. Уточняйте актуальные цифры у белорусского консультанта — а санкционную позицию отдельно, ведь она меняется быстрее всего."}
-  ]
- }
 };
 
 /* init */

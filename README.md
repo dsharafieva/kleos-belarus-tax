@@ -3,7 +3,8 @@
 A self-contained landing page explaining what a contractor in Belarus actually
 keeps, with a live gross-to-net calculator across the three realistic statuses —
 plus a short compliance note flagging that sanctions and payment feasibility sit
-outside the tax picture and must be checked separately. EN / RU toggle. Same
+outside the tax picture and must be checked separately. English only (the
+Russian toggle was removed on request). Same
 design system as the Romania, Spain and Serbia pages in this series.
 
 ## Files
@@ -43,9 +44,12 @@ Three statuses (tabs):
    20% band applies only to income from Belarusian companies above 60,000 BYN.
    Simplest and cheapest — the default for a solo cross-border contractor.
 2. **Entrepreneur (IP)** — 20% income tax on profit (`invoiced − expenses`),
-   plus the ФСЗН social-contribution floor: 35% on a minimum base of 12× the
-   monthly minimum wage (~€860/yr), which is deductible. A 30% band applies to
-   very high entrepreneur income (not modelled).
+   plus the ФСЗН social-contribution floor: ~29% pension on a minimum base of 12×
+   the monthly minimum wage (~€840/yr). A 30% band applies to
+   very high entrepreneur income (not modelled). **Note:** from 1 January 2026 IP
+   status is restricted to a list of permitted activities (Resolution 457) — many
+   services (incl. much IT/consulting) must now use an OOO instead. The page keeps
+   the IP tab but flags this in-app.
 3. **OOO (company)** — 20% profit tax, then 13% on distributed dividends.
    `profit = invoiced − expenses`.
 
@@ -71,7 +75,7 @@ constants near the top of the `<script>` in `index.html`. To refresh:
 - `ip.rate` — entrepreneur income-tax rate (0.20); `fsznFloorEUR` recomputes from
   `MZP_BYN` automatically
 - `ooo.corpRate` / `dividendRate` (0.20 / 0.13)
-- `highBandBYN` — the 220,000 BYN threshold referenced in copy
+- `highBandBYN` — the 350,000 BYN super-income threshold (2026) referenced in copy
 
 You should not need to touch the engine or layout for a yearly figures refresh.
 
@@ -89,10 +93,10 @@ You should not need to touch the engine or layout for a yearly figures refresh.
   2023; personal, dividend and profit rates have all moved since). Treat the
   figures as a 2026 snapshot and confirm current law.
 - **The IP contribution floor is a simplification** — it is the mandatory minimum
-  for entrepreneurs earning above 12× the minimum wage; lower earners pay on
+  (roughly the 29% pension rate on a 12× minimum-wage base); lower earners pay on
   actual income, and anyone can pay more voluntarily for higher pension accrual.
 - **The OOO route excludes a director's salary and contributions and accounting**,
-  the 25% personal band above 220,000 BYN, and any High-Tech Park relief — a real
+  the 25% super-income band above 350,000 BYN, and any High-Tech Park relief — a real
   company's take-home differs, sometimes a lot (HTP can push it far lower).
 - **EUR is indicative.** Belarusian tax is assessed in rubles; the rate moves.
 - This is general information, **not tax, legal, accounting or sanctions advice.**
