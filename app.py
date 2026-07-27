@@ -22,6 +22,6 @@ st.markdown("""
 html = Path(__file__).with_name("index.html").read_text(encoding="utf-8")
 
 # Height must comfortably exceed the tallest rendered state (all sections
-# expanded, RU strings, checklist ticked). Belarus adds the US/EU divergence
-# panel above a six-step checklist, so it runs about as tall as Serbia.
-components.html(html, height=6400, scrolling=True)
+# expanded). The page is English-only and the sanctions block is a compact note,
+# so it's a touch shorter than the checklist-based pages in the series.
+components.html(html, height=6200, scrolling=True)
