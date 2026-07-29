@@ -1,0 +1,123 @@
+# Kleos — Belarus contractor-taxation page
+
+A self-contained landing page explaining what a contractor in Belarus actually
+keeps, with a live gross-to-net calculator across the three realistic statuses —
+plus a short compliance note flagging that sanctions and payment feasibility sit
+outside the tax picture and must be checked separately. English only (the
+Russian toggle was removed on request). Same
+design system as the Romania, Spain and Serbia pages in this series.
+
+## Files
+- `index.html` — the entire page (HTML + CSS + JS, no build step, no dependencies)
+- `app.py` — thin Streamlit wrapper that renders `index.html` full-bleed
+- `requirements.txt` — Streamlit dependency for cloud deploy
+- `README.md` — this file
+
+## Run it
+
+**Just open it.** `index.html` is standalone — double-click it, or open in any
+browser. Nothing to install.
+
+**As a Streamlit app (local):**
+```bash
+pip install streamlit
+streamlit run app.py
+```
+`app.py` and `index.html` must sit in the same folder.
+
+**On Streamlit Community Cloud:** push all four files to a GitHub repo (root),
+then deploy `app.py` at share.streamlit.io. `requirements.txt` must be in the
+repo or the build fails with `ModuleNotFoundError`.
+
+## What the calculator models
+
+Currency: shown in **euros** for comparability with the other country pages and
+because foreign hiring is priced in EUR — but **Belarusian tax is assessed in
+rubles (BYN)**. Amounts convert at an indicative `BYN_PER_EUR = 3.55`; the rate
+moves. Say the word and this can be rebuilt ruble-native.
+
+Three statuses (tabs):
+
+1. **Self-employed (professional income tax, НПД)** — a flat **10% of revenue**
+   that already bundles social contributions, no expense deduction.
+   `net = invoiced × 0.90`. Income from foreign clients stays at 10%; the higher
+   20% band applies only to income from Belarusian companies above 60,000 BYN.
+   Simplest and cheapest — the default for a solo cross-border contractor.
+2. **Entrepreneur (IP)** — 20% income tax on profit (`invoiced − expenses`),
+   plus the ФСЗН social-contribution floor: ~29% pension on a minimum base of 12×
+   the monthly minimum wage (~€840/yr). A 30% band applies to
+   very high entrepreneur income (not modelled). **Note:** from 1 January 2026 IP
+   status is restricted to a list of permitted activities (Resolution 457) — many
+   services (incl. much IT/consulting) must now use an OOO instead. The page keeps
+   the IP tab but flags this in-app.
+3. **OOO (company)** — 20% profit tax, then 13% on distributed dividends.
+   `profit = invoiced − expenses`.
+
+Both directions work: enter an invoice to see the net, or a target net to solve
+for the invoice (60-step binary search).
+
+The **misclassification section** ("One contract away from being an employee") is
+the main buyer-facing risk block: an orange section with an interactive checklist
+(fixed hours, single client, integration, IP outside the 2026 permitted list,
+etc.). It's framed for the hiring company — Belarus reads substance over form
+(Resolution 465, art. 33 of the Tax Code), and reclassification lands back income
+tax, ФСЗН and penalties on the payer. The hero uses a dual-audience framing
+(ported from the Romania page): the contractor pays their own tax, but the rate
+you agree sets their net — so the page shows "both of you" the math.
+
+The **Sanctions & payments** section (id `pay`) is buyer-facing and positions
+Belarus as a differentiator, not a blanket no: it explains that Belarus is not a
+comprehensive embargo (targeted SDN/50% designations, not a whole-country ban),
+shows the **US vs EU divergence** (EU tightening — full transaction ban on named
+banks since July 2025, five more added Oct 2025; US easing — GL 14 cleared
+Belinvestbank for US persons in March 2026), lists the EU-blocked banks
+illustratively, and makes a process-based Kleos claim (we screen every
+counterparty against the lists that apply to you and move money only where it's
+lawful).
+
+IMPORTANT — before publishing this section: the bank list and sanctions wording
+are **indicative and dated (mid-2026)**; they change frequently and differ by
+jurisdiction. The list must be re-checked against live lists at publish time, and
+the compliance wording should be signed off by Kleos legal/compliance — it is not
+marketing copy to ship unreviewed.
+
+## Updating the numbers each year
+
+All tax parameters live in one `TAX` object plus the `BYN_PER_EUR` and `MZP_BYN`
+constants near the top of the `<script>` in `index.html`. To refresh:
+
+- `BYN_PER_EUR` — indicative exchange rate
+- `MZP_BYN` — monthly minimum wage (feeds the IP contribution floor)
+- `npd.rate` — self-employed rate (0.10)
+- `ip.rate` — entrepreneur income-tax rate (0.20); `fsznFloorEUR` recomputes from
+  `MZP_BYN` automatically
+- `ooo.corpRate` / `dividendRate` (0.20 / 0.13)
+- `highBandBYN` — the 350,000 BYN super-income threshold (2026) referenced in copy
+
+You should not need to touch the engine or layout for a yearly figures refresh.
+
+## Honest caveats (read these — Belarus needs them more than the others)
+
+- **Sanctions and payment feasibility can override the tax result.** A clean 10%
+  calculation is meaningless if you can't legally or practically send the money.
+  The page now only flags this in a short note by design — but the substance still
+  matters: restrictions differ by jurisdiction and change fast. **Screen every
+  counterparty against your own government's current lists and take qualified
+  sanctions advice before paying anyone in Belarus.** This page is not
+  sanctions-compliance advice.
+- **Belarusian tax rates have changed repeatedly** (the simplified system for
+  entrepreneurs was abolished in 2023; the self-employed НПД was introduced in
+  2023; personal, dividend and profit rates have all moved since). Treat the
+  figures as a 2026 snapshot and confirm current law.
+- **The IP contribution floor is a simplification** — it is the mandatory minimum
+  (roughly the 29% pension rate on a 12× minimum-wage base); lower earners pay on
+  actual income, and anyone can pay more voluntarily for higher pension accrual.
+- **The OOO route excludes a director's salary and contributions and accounting**,
+  the 25% super-income band above 350,000 BYN, and any High-Tech Park relief — a real
+  company's take-home differs, sometimes a lot (HTP can push it far lower).
+- **EUR is indicative.** Belarusian tax is assessed in rubles; the rate moves.
+- This is general information, **not tax, legal, accounting or sanctions advice.**
+  Confirm the tax with a Belarusian adviser and the sanctions position with
+  qualified counsel in your own jurisdiction.
+
+Figures reflect the 2026 Belarusian rules.
