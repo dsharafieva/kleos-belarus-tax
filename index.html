@@ -253,7 +253,7 @@
   <div class="coin" style="width:38px;height:38px;bottom:20%;left:10%"></div>
   <div class="wrap">
     <h2 data-i18n="calc_h2">Same invoice. Three very different bills.</h2>
-    <p class="sub" data-i18n="calc_sub">The self-employed route is strikingly cheap; a company is not. Pick a status, type the yearly amount, and see what actually lands.</p>
+    <p class="sub" data-i18n="calc_sub">The self-employed route is strikingly cheap; a company is not. Pick a status, type the yearly amount you'll pay them, and see what actually lands in their pocket.</p>
 
     <div class="card">
       <div class="regimes">
@@ -273,20 +273,20 @@
 
       <div class="controls">
         <div class="segmented" id="dir-seg">
-          <button class="on" data-dir="gross" onclick="setDir('gross')" data-i18n="dir_gross">I know the invoice</button>
+          <button class="on" data-dir="gross" onclick="setDir('gross')" data-i18n="dir_gross">I know the rate</button>
           <button data-dir="net" onclick="setDir('net')" data-i18n="dir_net">I want a target net</button>
         </div>
 
         <div class="field" id="field-gross">
-          <label data-i18n="in_gross">Annual amount you'll invoice / pay (€)</label>
+          <label data-i18n="in_gross">Annual amount you'll pay them (€)</label>
           <div class="in"><span>€</span><input id="gross" type="text" inputmode="numeric" value="36000" /></div>
           <div class="hint" id="hint-byn"></div>
         </div>
 
         <div class="field hidden" id="field-net">
-          <label data-i18n="in_net">Target annual net for the contractor (€)</label>
+          <label data-i18n="in_net">Target annual net for your contractor (€)</label>
           <div class="in"><span>€</span><input id="net" type="text" inputmode="numeric" value="28000" /></div>
-          <div class="hint" data-i18n="in_net_hint">We'll solve for the invoice amount that leaves this in their pocket.</div>
+          <div class="hint" data-i18n="in_net_hint">We'll solve for the rate you'd need to agree on to leave this in their pocket.</div>
         </div>
 
         <div class="field hidden" id="field-exp">
@@ -672,22 +672,22 @@ const I18N = {
   fact3:"company profit tax, then again on dividends",
   fact4:"fixed yearly social-contribution floor for an entrepreneur, whatever they earn",
   calc_h2:"Same invoice. Three very different bills.",
-  calc_sub:"The self-employed route is strikingly cheap; a company is not. Pick a status, type the yearly amount, and see what actually lands.",
+  calc_sub:"The self-employed route is strikingly cheap; a company is not. Pick a status, type the yearly amount you'll pay them, and see what actually lands in their pocket.",
   reg_npd_t:"Self-employed", reg_npd_d:"Professional income tax — 10% all-in",
   reg_ip_t:"Entrepreneur (IP)", reg_ip_d:"20% on profit · limited from 2026",
   ipwarn:"From 1 January 2026, IP status is limited to a defined list of permitted activities (Resolution 457). Many services — including much IT and consulting — are no longer allowed as an IP and must use an OOO instead. Check the activity against the list before assuming this route is open.",
   reg_ooo_t:"OOO company", reg_ooo_d:"Profit tax + dividends",
-  dir_gross:"I know the invoice", dir_net:"I want a target net",
-  in_gross:"Annual amount you'll invoice / pay (€)",
-  in_net:"Target annual net for the contractor (€)",
-  in_net_hint:"We'll solve for the invoice amount that leaves this in their pocket.",
+  dir_gross:"I know the rate", dir_net:"I want a target net",
+  in_gross:"Annual amount you'll pay them (€)",
+  in_net:"Target annual net for your contractor (€)",
+  in_net_hint:"We'll solve for the rate you'd need to agree on to leave this in their pocket.",
   in_exp:"Deductible business expenses (€ / year)",
   in_exp_hint:"The entrepreneur and company routes tax real profit, so expenses reduce the bill. Self-employed tax is a flat 10% of revenue with no expense deduction.",
   per_month:"net per month", eff_rate:"effective rate",
-  byn_suffix:" invoiced",
+  byn_suffix:" you'll pay",
   l_net:"Net in pocket", l_tax:"Tax", l_soc:"Contributions (floor)",
   l_corp:"Profit tax", l_div:"Dividend tax", l_exp:"Expenses",
-  r_gross:"Amount invoiced", r_npd:"Professional income tax (10%, incl. contributions)",
+  r_gross:"What you pay them", r_npd:"Professional income tax (10%, incl. contributions)",
   r_soc:"Social contributions (ФСЗН floor)", r_tax:"Income tax (20%)",
   r_exp:"Deductible expenses", r_corp:"Profit tax (20%)", r_div:"Dividend tax (13%)",
   r_net:"Net in pocket / year",
