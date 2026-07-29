@@ -56,8 +56,17 @@ Three statuses (tabs):
 Both directions work: enter an invoice to see the net, or a target net to solve
 for the invoice (60-step binary search).
 
-Sanctions and payments are handled by a single short **note** near the top of the
-page ("Before you pay"), not a full section: it flags that sanctions and payment-
+The **misclassification section** ("One contract away from being an employee") is
+the main buyer-facing risk block: an orange section with an interactive checklist
+(fixed hours, single client, integration, IP outside the 2026 permitted list,
+etc.). It's framed for the hiring company — Belarus reads substance over form
+(Resolution 465, art. 33 of the Tax Code), and reclassification lands back income
+tax, ФСЗН and penalties on the payer. The hero uses a dual-audience framing
+(ported from the Romania page): the contractor pays their own tax, but the rate
+you agree sets their net — so the page shows "both of you" the math.
+
+Sanctions and payments are handled by a single short **note** ("Before you pay",
+section id `pay`), not a full section: it flags that sanctions and payment-
 rail restrictions may apply, differ by jurisdiction and change often, and that
 this is a compliance question separate from the tax picture. A one-line reminder
 also appears in the hero and in the FAQ. (An earlier version had a full section
