@@ -136,6 +136,25 @@
     margin-top:5px;flex-shrink:0}
   .tl .what strong{display:block;font-size:1rem;margin-bottom:4px}
   .tl .what p{font-size:.9rem;color:#3a3a3a;line-height:1.5}
+  .mis{background:var(--orange);color:var(--white)}
+  .mis h2{font-size:clamp(2rem,4vw,2.9rem);font-weight:900;color:var(--white);max-width:17ch}
+  .mis .sub{color:rgba(255,255,255,.92);max-width:63ch;margin-top:16px;font-size:1.02rem;line-height:1.55}
+  .checklist{background:var(--white);color:var(--ink);border-radius:var(--radius);margin-top:40px;
+    padding:28px 30px;box-shadow:0 30px 60px -30px rgba(0,0,0,.4)}
+  .checklist .ci{font-size:.85rem;color:var(--grey-text);margin-bottom:16px}
+  .check{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--grey-line);cursor:pointer}
+  .check:last-of-type{border-bottom:none}
+  .check .box{width:24px;height:24px;border-radius:6px;border:2px solid var(--grey-line);flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;transition:all .14s}
+  .check .box svg{width:13px;height:13px;opacity:0;transform:scale(.5);transition:all .14s}
+  .check.on .box{background:var(--orange);border-color:var(--orange)}
+  .check.on .box svg{opacity:1;transform:scale(1)}
+  .check .txt{font-size:.95rem;font-weight:500;padding-top:2px}
+  .verdict{margin-top:20px;padding:16px 18px;border-radius:var(--radius-sm);background:var(--grey);
+    font-weight:600;font-size:.95rem;transition:all .2s}
+  .verdict.warn{background:#FFF1E8;color:#B23e00}
+  .verdict.danger{background:#FFE1E1;color:#B00000}
+  .verdict.safe{background:#E7F7EC;color:#046b1e}
   .note{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--grey-line);
     border-left:4px solid var(--orange);border-radius:var(--radius-sm);padding:20px 22px;background:var(--grey)}
   .note-ico{font-size:1.3rem;line-height:1.2}
@@ -197,6 +216,7 @@
     <div class="nav-links">
       <a href="#calc" data-i18n="nav_calc">Calculator</a>
       <a href="#how" data-i18n="nav_how">How it works</a>
+      <a href="#class" data-i18n="nav_class">Misclassification</a>
       <a href="#cases" data-i18n="nav_cases">Special cases</a>
       <a href="#faq" data-i18n="nav_faq">FAQ</a>
     </div>
@@ -211,7 +231,7 @@
   <div class="wrap">
     <span class="eyebrow" data-i18n="hero_eyebrow">Belarus · Contractor taxation guide · 2026</span>
     <h1><span data-i18n="hero_h1a">Hiring in Belarus?</span><br><span data-i18n="hero_h1b">Here's where the money </span><span class="hl" data-i18n="hero_h1c">actually goes.</span></h1>
-    <p class="lead" data-i18n="hero_lead">Belarus has some of the lightest contractor taxes in the region — a self-employed freelancer can keep 90% of what they invoice. Pick a status, run the numbers, and see what actually lands. (One caveat worth checking first: sanctions and payment rules can affect how you pay.)</p>
+    <p class="lead" data-i18n="hero_lead">Your contractor pays their own taxes — but the rate you agree on decides what actually lands in their pocket. This page gives both of you the full math: every rate, every threshold, and the two things that quietly bite — the 2026 IP reform and getting money into Belarus at all.</p>
     <div class="hero-cta">
       <a class="btn btn-green" href="#calc"><span data-i18n="hero_btn1">Run the numbers</span><i>→</i></a>
       <a class="btn btn-grey" href="#how"><span data-i18n="hero_btn2">How it works</span><i>→</i></a>
@@ -364,8 +384,21 @@
   </div>
 </section>
 
-<!-- SANCTIONS & PAYMENTS -->
-<section id="class" style="padding-top:44px;padding-bottom:44px">
+<!-- MISCLASSIFICATION -->
+<section class="mis" id="class">
+  <div class="wrap">
+    <h2 data-i18n="mis_h2">One contract away from being an employee.</h2>
+    <p class="sub" data-i18n="mis_sub">Belarus reads substance over form — set out in Resolution 465 and article 33 of the Tax Code. If a contractor works like staff, the authorities can treat the deal as employment: back income tax, ФСЗН contributions and penalties, with the company — not the contractor — on the hook. From 2026 there's a sharper edge: if the person is an IP working outside the permitted-activity list, it's not just reclassification, it's unlicensed activity.</p>
+    <div class="checklist">
+      <div class="ci" data-i18n="mis_ci">Tick what's true of the arrangement. Meet too many and it reads less like an independent contractor and more like an employee paid through a workaround.</div>
+      <div id="checks"></div>
+      <div class="verdict" id="verdict" data-i18n="mis_v0">Tick the items above to gauge the reclassification risk.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENTS NOTE -->
+<section id="pay" style="padding-top:44px;padding-bottom:44px">
   <div class="wrap">
     <div class="note">
       <div class="note-ico">⚠️</div>
@@ -518,7 +551,7 @@ const byn  = eur => Math.round(eur*BYN_PER_EUR).toLocaleString('de-DE')+' BYN';
 const parseNum = s => parseFloat((s||'').toString().replace(/[^\d.]/g,'')) || 0;
 
 function setLang(l){ LANG=l; document.documentElement.lang=l;
-  applyI18n(); buildFaq(); calc();
+  applyI18n(); buildChecklist(); buildFaq(); calc();
 }
 function setRegime(r){ regime=r;
   document.querySelectorAll('.regime').forEach(b=>b.classList.toggle('on', b.dataset.regime===r));
@@ -586,6 +619,24 @@ function render(r, gross){
 function row(label,val,sub){ return `<div class="line ${sub?'sub':''}"><span class="ll">${label}</span><span class="lv">${val}</span></div>`; }
 
 /* ---- FAQ ---- */
+/* ---- misclassification checklist ---- */
+let checkState=[];
+function buildChecklist(){
+  const T=I18N[LANG];
+  const tick='<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+  document.getElementById('checks').innerHTML = T.checks.map((c,i)=>
+    `<div class="check ${checkState[i]?'on':''}" onclick="toggleCheck(${i})"><div class="box">${tick}</div><div class="txt">${c}</div></div>`).join('');
+  updateVerdict();
+}
+function toggleCheck(i){ checkState[i]=!checkState[i]; buildChecklist(); }
+function updateVerdict(){
+  const T=I18N[LANG], n=checkState.filter(Boolean).length, v=document.getElementById('verdict');
+  v.className='verdict';
+  if(n===0){ v.classList.add('safe'); v.textContent=T.mis_vsafe; }
+  else if(n<=2){ v.classList.add('warn'); v.textContent=T.mis_vwarn.replace('{n}',n); }
+  else { v.classList.add('danger'); v.textContent=T.mis_vdanger.replace('{n}',n); }
+}
+
 function buildFaq(){
   const T=I18N[LANG];
   document.getElementById('faq-list').innerHTML = T.faq.map((f,i)=>
@@ -608,11 +659,11 @@ document.addEventListener('input', e=>{ if(['gross','net','exp'].includes(e.targ
    ============================================================ */
 const I18N = {
  en: {
-  nav_calc:"Calculator", nav_how:"How it works",
+  nav_calc:"Calculator", nav_how:"How it works", nav_class:"Misclassification",
   nav_cases:"Special cases", nav_faq:"FAQ", nav_demo:"Book a demo",
   hero_eyebrow:"Belarus · Contractor taxation guide · 2026",
   hero_h1a:"Hiring in Belarus?", hero_h1b:"Here's where the money ", hero_h1c:"actually goes.",
-  hero_lead:"Belarus has some of the lightest contractor taxes in the region — a self-employed freelancer can keep 90% of what they invoice. Pick a status, run the numbers, and see what actually lands. (One caveat worth checking first: sanctions and payment rules can affect how you pay.)",
+  hero_lead:"Your contractor pays their own taxes — but the rate you agree on decides what actually lands in their pocket. This page gives both of you the full math: every rate, every threshold, and the two things that quietly bite — the 2026 IP reform and getting money into Belarus at all.",
   hero_btn1:"Run the numbers", hero_btn2:"How it works",
   note_h:"Before you pay",
   note_p:"Sanctions and payment-rail restrictions may apply when paying into Belarus, and they differ by jurisdiction and change often. This sits outside the tax picture below — screen your counterparty and check compliance in your own jurisdiction before committing.",
@@ -675,7 +726,23 @@ const I18N = {
   case6_t:"Dividend timing", case6_p:"Company owners once used a reduced 6% dividend rate for profit left undistributed for three years (and 0% for five). The 6% rate was abolished for 2026, so the 13% standard rate is the safe planning assumption now.", case6_tag:"Changing",
   cta_h2:"Belarus rewrote the contractor rules in 2026. Sure you're still compliant?", cta_btn:"Check your setup",
   footer_disc:"This page is for general information only and is not tax, legal, accounting or sanctions-compliance advice. Tax figures reflect the 2026 Belarusian rules and simplified assumptions stated next to each calculation; rates have changed repeatedly in recent years. Amounts are shown in euros at an indicative ~3.55 BYN/€ for comparison, but Belarusian tax is assessed in rubles and the rate moves. Any note on sanctions here is a neutral, high-level pointer that changes frequently and differs by jurisdiction — always screen counterparties against your own government's current lists and take qualified sanctions and tax advice before paying anyone in Belarus.",
+  mis_h2:"One contract away from being an employee.",
+  mis_sub:"Belarus reads substance over form — set out in Resolution 465 and article 33 of the Tax Code. If a contractor works like staff, the authorities can treat the deal as employment: back income tax, ФСЗН contributions and penalties, with the company — not the contractor — on the hook. From 2026 there's a sharper edge: if the person is an IP working outside the permitted-activity list, it's not just reclassification, it's unlicensed activity.",
+  mis_ci:"Tick what's true of the arrangement. Meet too many and it reads less like an independent contractor and more like an employee paid through a workaround.",
+  checks:[
+    "Fixed hours, a workplace, or subordination to the company's internal rules",
+    "A single or dominant client, paid a regular, salary-like amount",
+    "Integrated into the team — company email, standups, a manager",
+    "An exclusivity or non-compete expectation, as if employed",
+    "Registered as an IP in an activity no longer permitted from 2026 (Resolution 457)",
+    "No signs of an independent business — no own clients, tools or commercial risk"
+  ],
+  mis_v0:"Tick the items above to gauge the reclassification risk.",
+  mis_vsafe:"Nothing ticked — this reads as a genuine contractor relationship. Keep the paperwork (contract, acts, invoices) matching that reality.",
+  mis_vwarn:"{n} sign(s) — a grey area. Any of these can invite a substance-over-form challenge; tighten the arrangement before it's tested.",
+  mis_vdanger:"{n} signs — this looks like employment in a contractor's wrapper. That's the pattern that gets reclassified, with back tax, ФСЗН and penalties landing on you, not them.",
   faq:[
+    {q:"Could hiring a Belarusian contractor be reclassified as employment?",a:"Yes — and the bill lands on you. Belarus applies substance over form (Resolution 465, article 33 of the Tax Code): if the contractor works fixed hours, answers to a manager, has no other clients and is paid like staff, the authorities can treat the contract as employment and charge back income tax, ФСЗН contributions and penalties to the company. Keep the relationship — and the paperwork — genuinely independent, and from 2026 check the contractor's IP activity is still on the permitted list."},
     {q:"Who actually pays the taxes — the company or the contractor?",a:"The contractor. A Belarusian self-employed person, entrepreneur or company invoices you and handles their own tax and contributions — the self-employed simply declare income in the tax app and pay 10%, contributions included. Your job is to pay the agreed invoice, but the rate you agree sets what's left after their taxes, so this page shows both sides."},
     {q:"Can we even pay a contractor in Belarus?",a:"Often yes, but it depends on your jurisdiction and the contractor's bank — sanctions and payment-rail restrictions can apply, and they change. That's a compliance question separate from the tax picture on this page: screen the counterparty against your own government's current lists, confirm a working payment route, and take qualified advice before sending anything."},
     {q:"Why is the self-employed rate only 10%?",a:"Belarus's professional income tax for the self-employed is a flat 10% of revenue that already bundles the social-contribution component, with no separate expense accounting. Crucially, income earned from foreign clients stays at 10% — the higher 20% band applies only to income received from Belarusian companies above 60,000 BYN a year. For a solo contractor billing abroad, that makes it the simplest and cheapest status by a wide margin."},
@@ -687,7 +754,7 @@ const I18N = {
 };
 
 /* init */
-applyI18n(); buildFaq(); setRegime('npd'); calc();
+applyI18n(); buildChecklist(); buildFaq(); setRegime('npd'); calc();
 </script>
 </body>
 </html>
