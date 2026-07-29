@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hiring a contractor in Belarus — where the money goes, whether you can pay it | Kleos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --orange:#F66200; --ink:#141414; --green:#009423; --green-deep:#024616;
+    --teal:#0AC2C8; --grey:#F5F5F5; --grey-line:#E4E4E4; --grey-text:#6B6B6B;
+    --white:#FFFFFF; --radius:22px; --radius-sm:12px; --maxw:1160px;
+    --font:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);color:var(--ink);background:var(--white);line-height:1.5;
+    -webkit-font-smoothing:antialiased;font-feature-settings:"ss01","cv01"}
+  h1,h2,h3{letter-spacing:-0.03em;line-height:1.02;font-weight:800}
+  section{padding:96px 24px}
+  .wrap{max-width:var(--maxw);margin:0 auto}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.8rem;font-weight:600;
+    color:var(--grey-text);margin-bottom:26px}
+  .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green)}
+  a{color:inherit;text-decoration:none}
+  .hidden{display:none !important}
+  .btn{display:inline-flex;align-items:stretch;border:none;cursor:pointer;font-family:var(--font);
+    font-weight:600;font-size:.98rem;border-radius:11px;overflow:hidden;color:var(--white);
+    transition:transform .12s ease,filter .12s ease}
+  .btn:hover{filter:brightness(1.06)}
+  .btn:active{transform:translateY(1px)}
+  .btn span{padding:14px 20px}
+  .btn i{display:flex;align-items:center;justify-content:center;padding:0 15px;font-style:normal;
+    border-left:1px solid rgba(255,255,255,.22)}
+  .btn-orange{background:var(--orange)} .btn-green{background:var(--green)}
+  .btn-ink{background:var(--ink)} .btn-grey{background:var(--grey);color:var(--ink)}
+  .btn-grey i{border-left-color:rgba(0,0,0,.1)}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--grey-line)}
+  .nav{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;
+    justify-content:space-between;padding:15px 24px;gap:20px}
+  .logo{font-weight:900;font-size:1.5rem;letter-spacing:-.05em}
+  .logo b{color:var(--orange)}
+  .nav-links{display:flex;gap:26px;font-size:.92rem;font-weight:500}
+  .nav-links a{color:var(--ink);opacity:.78}
+  .nav-links a:hover{opacity:1}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .lang{display:flex;border:1px solid var(--grey-line);border-radius:9px;overflow:hidden}
+  .lang button{border:none;background:var(--white);cursor:pointer;font-family:var(--font);
+    font-weight:600;font-size:.82rem;padding:7px 12px;color:var(--grey-text)}
+  .lang button.on{background:var(--ink);color:var(--white)}
+  .hero{padding-top:78px;padding-bottom:64px}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:900;max-width:16ch}
+  .hero h1 .hl{color:var(--orange)}
+  .hero p.lead{font-size:1.18rem;color:#3a3a3a;max-width:56ch;margin:26px 0 34px;line-height:1.45}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px;
+    border:1px solid var(--grey-line);border-radius:var(--radius);overflow:hidden}
+  .fact{padding:26px}
+  .fact + .fact{border-left:1px solid var(--grey-line)}
+  .fact .n{font-size:1.9rem;font-weight:800;letter-spacing:-.04em}
+  .fact .l{font-size:.82rem;color:var(--grey-text);margin-top:8px;line-height:1.35}
+  .calc-sec{background:var(--green-deep);color:var(--white);position:relative;overflow:hidden}
+  .calc-sec h2{font-size:clamp(2rem,4vw,2.9rem);font-weight:900;color:var(--white);max-width:16ch}
+  .calc-sec .sub{color:rgba(255,255,255,.72);max-width:54ch;margin-top:16px;font-size:1.05rem}
+  .coin{position:absolute;border-radius:50%;background:radial-gradient(circle at 35% 30%,#0db83a,#046b1e);
+    box-shadow:inset 0 -6px 12px rgba(0,0,0,.35);opacity:.5}
+  .coin::after{content:"€";position:absolute;inset:0;display:flex;align-items:center;
+    justify-content:center;color:#023e13;font-weight:900;font-size:1.4em}
+  .card{position:relative;z-index:2;background:var(--white);color:var(--ink);border-radius:var(--radius);
+    margin-top:44px;padding:30px;box-shadow:0 30px 60px -25px rgba(0,0,0,.45);
+    display:grid;grid-template-columns:1fr 1.05fr;gap:34px}
+  .regimes{display:flex;gap:8px;grid-column:1/-1;flex-wrap:wrap}
+  .regime{flex:1;min-width:150px;border:1.5px solid var(--grey-line);background:var(--white);
+    border-radius:12px;padding:12px 14px;cursor:pointer;text-align:left;font-family:var(--font);
+    transition:all .14s ease}
+  .regime .rt{font-weight:700;font-size:.95rem}
+  .regime .rd{font-size:.76rem;color:var(--grey-text);margin-top:3px;line-height:1.25}
+  .regime.on{background:var(--ink);border-color:var(--ink)}
+  .regime.on .rt{color:var(--white)} .regime.on .rd{color:rgba(255,255,255,.7)}
+  .controls{display:flex;flex-direction:column;gap:18px}
+  .segmented{display:flex;background:var(--grey);border-radius:10px;padding:4px;gap:4px}
+  .segmented button{flex:1;border:none;background:transparent;cursor:pointer;font-family:var(--font);
+    font-weight:600;font-size:.85rem;padding:9px 8px;border-radius:7px;color:var(--grey-text)}
+  .segmented button.on{background:var(--white);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+  .field label{display:block;font-size:.82rem;font-weight:600;margin-bottom:7px}
+  .field .in{display:flex;align-items:center;border:1.5px solid var(--grey-line);border-radius:10px;
+    padding:0 14px;transition:border-color .14s}
+  .field .in:focus-within{border-color:var(--ink)}
+  .field .in span{color:var(--grey-text);font-weight:600}
+  .field input{border:none;outline:none;font-family:var(--font);font-size:1.15rem;font-weight:700;
+    padding:12px 8px;width:100%;background:transparent;color:var(--ink)}
+  .field .hint{font-size:.75rem;color:var(--grey-text);margin-top:6px}
+  .result{display:flex;flex-direction:column}
+  .bar{display:flex;height:30px;border-radius:8px;overflow:hidden;margin-bottom:12px;background:var(--grey)}
+  .bar div{height:100%;transition:width .5s cubic-bezier(.4,0,.2,1)}
+  .s-net{background:var(--green)} .s-soc{background:var(--green-deep)}
+  .s-tax{background:var(--orange)} .s-exp{background:var(--ink)}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.76rem;color:var(--grey-text);margin-bottom:20px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .dot{width:10px;height:10px;border-radius:3px;display:inline-block}
+  .lines{display:flex;flex-direction:column;gap:2px}
+  .line{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;
+    border-bottom:1px solid var(--grey-line);font-size:.95rem}
+  .line .lv{font-weight:700;font-variant-numeric:tabular-nums}
+  .line.sub .ll{color:var(--grey-text);font-weight:500}
+  .line.sub .lv{color:var(--grey-text);font-weight:600}
+  .line.net{border-bottom:none;padding-top:16px}
+  .line.net .ll{font-weight:800;font-size:1.05rem}
+  .line.net .lv{font-weight:900;font-size:1.5rem;color:var(--green)}
+  .totals{background:var(--grey);border-radius:var(--radius-sm);padding:16px 18px;margin-top:16px;
+    display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .totals .tbig{font-size:1.55rem;font-weight:900;letter-spacing:-.03em}
+  .totals .tmini{font-size:.78rem;color:var(--grey-text);margin-top:2px}
+  .totals .eff{text-align:right}
+  .totals .eff .n{font-size:1.55rem;font-weight:900;color:var(--orange)}
+  .assume{font-size:.74rem;color:var(--grey-text);margin-top:16px;line-height:1.45}
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+  .tcard{border:1px solid var(--grey-line);border-radius:var(--radius);padding:26px}
+  .tcard .big{font-size:2.6rem;font-weight:900;letter-spacing:-.04em}
+  .tcard.c-irpf .big{color:var(--green)} .tcard.c-soc .big{color:var(--ink)}
+  .tcard.c-iva .big{color:var(--orange)}
+  .tcard h3{font-size:1.15rem;margin:6px 0 10px}
+  .tcard p{font-size:.92rem;color:#3a3a3a;line-height:1.5}
+  .tcard .mini{margin-top:16px;border-top:1px solid var(--grey-line);padding-top:12px}
+  .tcard .mini .r{display:flex;justify-content:space-between;font-size:.82rem;padding:4px 0}
+  .tcard .mini .r span:last-child{font-weight:700}
+  .tl-title{font-size:1.35rem;font-weight:800;margin:64px 0 8px}
+  .timeline{margin-top:26px;position:relative;padding-left:8px}
+  .tl{display:grid;grid-template-columns:170px 1fr;gap:22px;padding:18px 0;border-top:1px solid var(--grey-line)}
+  .tl:first-child{border-top:none}
+  .tl .when{font-size:.82rem;color:var(--grey-text);font-weight:600;display:flex;align-items:flex-start;gap:10px}
+  .tl .when::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--orange);
+    margin-top:5px;flex-shrink:0}
+  .tl .what strong{display:block;font-size:1rem;margin-bottom:4px}
+  .tl .what p{font-size:.9rem;color:#3a3a3a;line-height:1.5}
+  .mis{background:var(--orange);color:var(--white)}
+  .mis h2{font-size:clamp(2rem,4vw,2.9rem);font-weight:900;color:var(--white);max-width:17ch}
+  .mis .sub{color:rgba(255,255,255,.92);max-width:63ch;margin-top:16px;font-size:1.02rem;line-height:1.55}
+  .checklist{background:var(--white);color:var(--ink);border-radius:var(--radius);margin-top:40px;
+    padding:28px 30px;box-shadow:0 30px 60px -30px rgba(0,0,0,.4)}
+  .checklist .ci{font-size:.85rem;color:var(--grey-text);margin-bottom:16px}
+  .check{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--grey-line);cursor:pointer}
+  .check:last-of-type{border-bottom:none}
+  .check .box{width:24px;height:24px;border-radius:6px;border:2px solid var(--grey-line);flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;transition:all .14s}
+  .check .box svg{width:13px;height:13px;opacity:0;transform:scale(.5);transition:all .14s}
+  .check.on .box{background:var(--orange);border-color:var(--orange)}
+  .check.on .box svg{opacity:1;transform:scale(1)}
+  .check .txt{font-size:.95rem;font-weight:500;padding-top:2px}
+  .verdict{margin-top:20px;padding:16px 18px;border-radius:var(--radius-sm);background:var(--grey);
+    font-weight:600;font-size:.95rem;transition:all .2s}
+  .verdict.warn{background:#FFF1E8;color:#B23e00}
+  .verdict.danger{background:#FFE1E1;color:#B00000}
+  .verdict.safe{background:#E7F7EC;color:#046b1e}
+  .diverge{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+  .dbox{border:1px solid var(--grey-line);border-radius:var(--radius-sm);padding:20px 22px}
+  .dbox .flag{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+  .dbox.eu .flag{color:var(--orange)} .dbox.us .flag{color:var(--green)}
+  .dbox h4{font-size:1rem;margin-bottom:8px}
+  .dbox p{font-size:.9rem;color:#3a3a3a;line-height:1.5}
+  .dbox .banks{font-size:.8rem;color:var(--grey-text);margin-top:12px;line-height:1.6}
+  .note{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--grey-line);
+    border-left:4px solid var(--orange);border-radius:var(--radius-sm);padding:20px 22px;background:var(--grey)}
+  .note-ico{font-size:1.3rem;line-height:1.2}
+  .note strong{font-size:1rem;display:block;margin-bottom:6px}
+  .note p{font-size:.9rem;color:#3a3a3a;line-height:1.55;max-width:82ch}
+  .ipwarn{grid-column:1/-1;background:#FFF1E8;color:#B23e00;border-radius:10px;padding:12px 15px;
+    font-size:.82rem;font-weight:600;line-height:1.45;margin-top:-6px}
+  .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  .case{background:var(--grey);border-radius:var(--radius);padding:24px;border:1px solid transparent;transition:border-color .14s}
+  .case:hover{border-color:var(--grey-line)}
+  .case .ico{font-size:1.7rem;margin-bottom:12px}
+  .case h3{font-size:1.08rem;margin-bottom:8px}
+  .case p{font-size:.88rem;color:#3a3a3a;line-height:1.5}
+  .tag{display:inline-block;margin-top:14px;font-size:.72rem;font-weight:700;padding:5px 11px;border-radius:20px}
+  .tag.up{background:#E7F7EC;color:var(--green)}
+  .tag.down{background:#FFE1E1;color:#B00000}
+  .tag.flat{background:#EAEAEA;color:var(--grey-text)}
+  .faq h2{font-size:clamp(2rem,4vw,2.9rem);font-weight:900}
+  .faq-list{margin-top:36px;border-top:1px solid var(--grey-line)}
+  .qa{border-bottom:1px solid var(--grey-line)}
+  .qa button{width:100%;background:none;border:none;cursor:pointer;font-family:var(--font);
+    display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 4px;
+    text-align:left;font-size:1.05rem;font-weight:600;color:var(--ink)}
+  .qa .plus{font-size:1.5rem;font-weight:400;flex-shrink:0;transition:transform .2s}
+  .qa.open .plus{transform:rotate(45deg)}
+  .qa .ans{max-height:0;overflow:hidden;transition:max-height .28s ease}
+  .qa .ans p{padding:0 4px 22px;font-size:.96rem;color:#3a3a3a;line-height:1.6;max-width:75ch}
+  .cta{background:var(--ink);border-radius:var(--radius);color:var(--white);padding:52px;
+    display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+  .cta h2{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:900;color:var(--white);max-width:18ch}
+  footer{padding:44px 24px 60px}
+  .foot{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;gap:20px;
+    flex-wrap:wrap;align-items:flex-start}
+  .foot .logo{font-size:1.2rem}
+  .disc{font-size:.75rem;color:var(--grey-text);line-height:1.55;max-width:66ch;margin-top:22px}
+  .copy{font-size:.8rem;color:var(--grey-text)}
+  @media(max-width:860px){
+    .diverge{grid-template-columns:1fr}
+    section{padding:64px 20px}
+    .nav-links{display:none}
+    .facts{grid-template-columns:repeat(2,1fr)}
+    .fact:nth-child(3){border-left:none}
+    .fact:nth-child(3),.fact:nth-child(4){border-top:1px solid var(--grey-line)}
+    .card{grid-template-columns:1fr;gap:24px}
+    .three{grid-template-columns:1fr}
+    .cases{grid-template-columns:1fr}
+    .tl{grid-template-columns:1fr;gap:6px}
+    .cta{padding:34px}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none !important;scroll-behavior:auto !important}}
+  :focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <nav class="nav">
+    <div class="logo">Kle<b>o</b>s</div>
+    <div class="nav-links">
+      <a href="#calc" data-i18n="nav_calc">Calculator</a>
+      <a href="#how" data-i18n="nav_how">How it works</a>
+      <a href="#class" data-i18n="nav_class">Misclassification</a>
+      <a href="#pay" data-i18n="nav_pay">Sanctions</a>
+      <a href="#cases" data-i18n="nav_cases">Special cases</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn btn-orange" href="#cta"><span data-i18n="nav_demo">Book a demo</span><i>→</i></a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="hero_eyebrow">Belarus · Contractor taxation guide · 2026</span>
+    <h1><span data-i18n="hero_h1a">Hiring in Belarus?</span><br><span data-i18n="hero_h1b">Here's where the money </span><span class="hl" data-i18n="hero_h1c">actually goes.</span></h1>
+    <p class="lead" data-i18n="hero_lead">Your contractor pays their own taxes — but the rate you agree on decides what actually lands in their pocket. This page gives both of you the full math: every rate, every threshold, and the two things that quietly bite — the 2026 IP reform and getting money into Belarus at all.</p>
+    <div class="hero-cta">
+      <a class="btn btn-green" href="#calc"><span data-i18n="hero_btn1">Run the numbers</span><i>→</i></a>
+      <a class="btn btn-grey" href="#how"><span data-i18n="hero_btn2">How it works</span><i>→</i></a>
+    </div>
+    <div class="facts">
+      <div class="fact"><div class="n">10%</div><div class="l" data-i18n="fact1">self-employed tax — and social contributions are already included</div></div>
+      <div class="fact"><div class="n">20%</div><div class="l" data-i18n="fact2">flat income tax for a registered entrepreneur, on profit</div></div>
+      <div class="fact"><div class="n">20% → 13%</div><div class="l" data-i18n="fact3">company profit tax, then again on dividends</div></div>
+      <div class="fact"><div class="n">≈€840</div><div class="l" data-i18n="fact4">fixed yearly social-contribution floor for an entrepreneur, whatever they earn</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calc-sec" id="calc">
+  <div class="coin" style="width:70px;height:70px;top:12%;left:6%"></div>
+  <div class="coin" style="width:44px;height:44px;top:30%;right:9%"></div>
+  <div class="coin" style="width:90px;height:90px;bottom:8%;right:4%"></div>
+  <div class="coin" style="width:38px;height:38px;bottom:20%;left:10%"></div>
+  <div class="wrap">
+    <h2 data-i18n="calc_h2">Same invoice. Three very different bills.</h2>
+    <p class="sub" data-i18n="calc_sub">The self-employed route is strikingly cheap; a company is not. Pick a status, type the yearly amount you'll pay them, and see what actually lands in their pocket.</p>
+
+    <div class="card">
+      <div class="regimes">
+        <button class="regime on" data-regime="npd" onclick="setRegime('npd')">
+          <div class="rt" data-i18n="reg_npd_t">Self-employed</div>
+          <div class="rd" data-i18n="reg_npd_d">Professional income tax — 10% all-in</div>
+        </button>
+        <button class="regime" data-regime="ip" onclick="setRegime('ip')">
+          <div class="rt" data-i18n="reg_ip_t">Entrepreneur (IP)</div>
+          <div class="rd" data-i18n="reg_ip_d">20% on profit · limited from 2026</div>
+        </button>
+        <button class="regime" data-regime="ooo" onclick="setRegime('ooo')">
+          <div class="rt" data-i18n="reg_ooo_t">OOO company</div>
+          <div class="rd" data-i18n="reg_ooo_d">Profit tax + dividends</div>
+        </button>
+      </div>
+
+      <div class="controls">
+        <div class="segmented" id="dir-seg">
+          <button class="on" data-dir="gross" onclick="setDir('gross')" data-i18n="dir_gross">I know the rate</button>
+          <button data-dir="net" onclick="setDir('net')" data-i18n="dir_net">I want a target net</button>
+        </div>
+
+        <div class="field" id="field-gross">
+          <label data-i18n="in_gross">Annual amount you'll pay them (€)</label>
+          <div class="in"><span>€</span><input id="gross" type="text" inputmode="numeric" value="36000" /></div>
+          <div class="hint" id="hint-byn"></div>
+        </div>
+
+        <div class="field hidden" id="field-net">
+          <label data-i18n="in_net">Target annual net for your contractor (€)</label>
+          <div class="in"><span>€</span><input id="net" type="text" inputmode="numeric" value="28000" /></div>
+          <div class="hint" data-i18n="in_net_hint">We'll solve for the rate you'd need to agree on to leave this in their pocket.</div>
+        </div>
+
+        <div class="field hidden" id="field-exp">
+          <label data-i18n="in_exp">Deductible business expenses (€ / year)</label>
+          <div class="in"><span>€</span><input id="exp" type="text" inputmode="numeric" value="4000" /></div>
+          <div class="hint" data-i18n="in_exp_hint">The entrepreneur and company routes tax real profit, so expenses reduce the bill. Self-employed tax is a flat 10% of revenue with no expense deduction.</div>
+        </div>
+        <div class="ipwarn hidden" id="ipwarn" data-i18n="ipwarn">From 1 January 2026, IP status is limited to a defined list of permitted activities (Resolution 457). Many services — including much IT and consulting — are no longer allowed as an IP and must use an OOO instead. Check the activity against the list before assuming this route is open.</div>
+      </div>
+
+      <div class="result">
+        <div class="bar" id="bar">
+          <div class="s-net" style="width:80%"></div>
+          <div class="s-soc" style="width:10%"></div>
+          <div class="s-tax" style="width:7%"></div>
+          <div class="s-exp" style="width:3%"></div>
+        </div>
+        <div class="legend" id="legend"></div>
+        <div class="lines" id="lines"></div>
+        <div class="totals">
+          <div>
+            <div class="tbig" id="permonth">—</div>
+            <div class="tmini" data-i18n="per_month">net per month</div>
+          </div>
+          <div class="eff">
+            <div class="n" id="effrate">—</div>
+            <div class="tmini" data-i18n="eff_rate">effective rate</div>
+          </div>
+        </div>
+        <div class="assume" id="assume"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="how_eyebrow">The system, in three charges</span>
+    <h2 style="font-size:clamp(2rem,4vw,2.9rem)" data-i18n="how_h2">Low, flat tax — and contributions that stay small.</h2>
+    <p style="max-width:64ch;margin-top:14px;color:#3a3a3a;font-size:1.05rem" data-i18n="how_sub">Belarus taxes personal income at a flat 13%, self-employment at 10%, and entrepreneurs and companies at 20%. Social contributions are nominally high but, for solo workers, sit on a low fixed floor — or are folded into the self-employed rate entirely.</p>
+
+    <div class="three">
+      <div class="tcard c-irpf">
+        <div class="big">10–20%</div>
+        <h3 data-i18n="how_irpf_t">Income tax — low and mostly flat</h3>
+        <p data-i18n="how_irpf_p">Self-employment is taxed at 10%, standard personal income and dividends at 13%, and entrepreneurs and companies at 20%. A 25% super-income band applies to personal income above 350,000 BYN (~€99k) a year (30% at the very top; dividends cap at 25%) — high enough that most contractors never reach it.</p>
+        <div class="mini">
+          <div class="r"><span data-i18n="how_irpf_r1">Self-employed</span><span>10%</span></div>
+          <div class="r"><span data-i18n="how_irpf_r2">Entrepreneur / company</span><span>20%</span></div>
+          <div class="r"><span data-i18n="how_irpf_r3">Dividends</span><span>13%</span></div>
+        </div>
+      </div>
+      <div class="tcard c-soc">
+        <div class="big">35%</div>
+        <h3 data-i18n="how_soc_t">Contributions — but on a low floor</h3>
+        <p data-i18n="how_soc_p">Social contributions (ФСЗН) are charged not on full income but on a minimum base of just 12× the monthly minimum wage — a fixed floor of roughly €840 a year for a solo entrepreneur (about 29% pension, up to 35% combined). The self-employed rate has them baked in already.</p>
+        <div class="mini">
+          <div class="r"><span data-i18n="how_soc_r1">Pension (min)</span><span>≈29%</span></div>
+          <div class="r"><span data-i18n="how_soc_r2">Entrepreneur floor</span><span>≈€840/yr</span></div>
+          <div class="r"><span data-i18n="how_soc_r3">Self-employed</span><span data-i18n="how_soc_r3v">included</span></div>
+        </div>
+      </div>
+      <div class="tcard c-iva">
+        <div class="big">20%</div>
+        <h3 data-i18n="how_iva_t">VAT — usually not your problem</h3>
+        <p data-i18n="how_iva_p">Standard VAT is 20%, but the self-employed regime sits outside VAT, and services exported to a foreign client are generally zero-rated or out of scope. It rarely touches a solo contractor billing abroad.</p>
+        <div class="mini">
+          <div class="r"><span data-i18n="how_iva_r1">Standard rate</span><span>20%</span></div>
+          <div class="r"><span data-i18n="how_iva_r2">Reduced</span><span>10%</span></div>
+          <div class="r"><span data-i18n="how_iva_r3">Exported services</span><span data-i18n="how_iva_r3v">0% / outside</span></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="tl-title" data-i18n="tl_title">A year in the life of a Belarusian contractor's taxes</h3>
+    <div class="timeline">
+      <div class="tl">
+        <div class="when" data-i18n="tl1_when">Day 1</div>
+        <div class="what"><strong data-i18n="tl1_t">Pick a status and register</strong><p data-i18n="tl1_p">Self-employment registers through the tax authority's app in minutes; an entrepreneur (IP) or company (OOO) registers with the tax office / registry. Status determines everything that follows.</p></div>
+      </div>
+      <div class="tl">
+        <div class="when" data-i18n="tl2_when">Monthly (self-employed)</div>
+        <div class="what"><strong data-i18n="tl2_t">Declare income, pay 10% in the app</strong><p data-i18n="tl2_p">The self-employed app calculates 10% on declared receipts — contributions included — and you pay in-app. Income from a foreign client stays at 10%; the 20% band only touches income from Belarusian companies over 60,000 BYN.</p></div>
+      </div>
+      <div class="tl">
+        <div class="when" data-i18n="tl3_when">Annually (entrepreneur)</div>
+        <div class="what"><strong data-i18n="tl3_t">File income tax, settle ФСЗН by 31 March</strong><p data-i18n="tl3_p">An IP files income tax on profit (income minus documented expenses) and pays the social-contribution floor for the year by 31 March of the following year.</p></div>
+      </div>
+      <div class="tl">
+        <div class="when" data-i18n="tl4_when">Watch continuously</div>
+        <div class="what"><strong data-i18n="tl4_t">Currency rules and the payment rail</strong><p data-i18n="tl4_p">Foreign-currency proceeds face currency-control rules on the Belarus side — and on the payer's side, sanctions screening and a working bank route decide whether the money arrives at all.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISCLASSIFICATION -->
+<section class="mis" id="class">
+  <div class="wrap">
+    <h2 data-i18n="mis_h2">One contract away from being an employee.</h2>
+    <p class="sub" data-i18n="mis_sub">Belarus reads substance over form — set out in Resolution 465 and article 33 of the Tax Code. If a contractor works like staff, the authorities can treat the deal as employment: back income tax, ФСЗН contributions and penalties, with the company — not the contractor — on the hook. From 2026 there's a sharper edge: if the person is an IP working outside the permitted-activity list, it's not just reclassification, it's unlicensed activity.</p>
+    <div class="checklist">
+      <div class="ci" data-i18n="mis_ci">Tick what's true of the arrangement. Meet too many and it reads less like an independent contractor and more like an employee paid through a workaround.</div>
+      <div id="checks"></div>
+      <div class="verdict" id="verdict" data-i18n="mis_v0">Tick the items above to gauge the reclassification risk.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SANCTIONS & PAYMENTS -->
+<section id="pay">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="pay_eyebrow">Sanctions &amp; payments</span>
+    <h2 style="font-size:clamp(2rem,4vw,2.9rem)" data-i18n="pay_h2">What sanctions actually block</h2>
+    <p style="max-width:64ch;margin-top:14px;color:#3a3a3a;font-size:1.05rem" data-i18n="pay_sub">Belarus often gets treated as off-limits. It isn't — the sanctions target named banks and entities, not the country, and what you can actually do depends on where you sit, with the US and EU now pointing in opposite directions.</p>
+    <div class="diverge">
+      <div class="dbox eu">
+        <div class="flag" data-i18n="pay_eu_flag">EU · tightening</div>
+        <h4 data-i18n="pay_eu_t">A full transaction ban, and growing</h4>
+        <p data-i18n="pay_eu_p">Since July 2025 the EU prohibits any transaction with a set of Belarusian banks, widened the list in October 2025, and has kept tightening through 2026. Anything they own 50%+ is caught too.</p>
+        <div class="banks" data-i18n="pay_eu_banks">Belagroprombank · Bank Dabrabyt · Development Bank · Belinvestbank · BelVEB · Belgazprombank · Alfa-Bank (Belarus) · Sber Bank (Belarus) · VTB Bank (Belarus)</div>
+      </div>
+      <div class="dbox us">
+        <div class="flag" data-i18n="pay_us_flag">US · easing</div>
+        <h4 data-i18n="pay_us_t">Rolling measures back since late 2025</h4>
+        <p data-i18n="pay_us_p">OFAC has been lifting, not adding — and has kept easing through 2026. General License 14 (March 2026) cleared Belinvestbank for US persons, and potash designations were dropped. Same bank the EU blocks — opposite answer, depending on your nexus.</p>
+      </div>
+    </div>
+    <div class="note" style="margin-top:22px">
+      <div>
+        <strong data-i18n="pay_kleos_h">Someone has to screen every payment. It shouldn't be you.</strong>
+        <p data-i18n="pay_kleos_p">Every payment into Belarus means checking the counterparty and its bank against three moving sanction lists. We run that screen and only pay where it clears — so you're not the one deciding whether a transfer is legal.</p>
+      </div>
+    </div>
+    <p style="font-size:.75rem;color:var(--grey-text);margin-top:16px;max-width:82ch" data-i18n="pay_asof">Reflects mid-2026. Sanctions here change frequently and differ by jurisdiction (US, EU, UK) — treat the bank list as indicative, not definitive, and screen against live lists before any payment. This is not legal or sanctions advice.</p>
+  </div>
+</section>
+
+<!-- CASES -->
+<section id="cases">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="cases_eyebrow">Same rate, different net</span>
+    <h2 style="font-size:clamp(2rem,4vw,2.9rem)" data-i18n="cases_h2">Cases that change the final number</h2>
+    <p style="max-width:60ch;margin-top:14px;color:#3a3a3a;font-size:1.05rem" data-i18n="cases_sub">In Belarus the status and the payment route matter more than the headline rate. These move the outcome most.</p>
+
+    <div class="cases">
+      <div class="case">
+        <div class="ico">🎯</div>
+        <h3 data-i18n="case1_t">Which status they register</h3>
+        <p data-i18n="case1_p">Self-employed (10% all-in), entrepreneur (20% + a small floor) and company (20% then 13% on dividends) don't converge — the burden can run from 10% to nearly 40% at the same income. It's the biggest lever on this page.</p>
+        <span class="tag flat" data-i18n="case1_tag">Big swing</span>
+      </div>
+      <div class="case">
+        <div class="ico">🌍</div>
+        <h3 data-i18n="case2_t">Billing a foreign client</h3>
+        <p data-i18n="case2_p">The self-employed 20% band only applies to income from Belarusian companies above 60,000 BYN. Income from a foreign client stays at the flat 10% — which is exactly the cross-border contractor case.</p>
+        <span class="tag up" data-i18n="case2_tag">Stays 10%</span>
+      </div>
+      <div class="case">
+        <div class="ico">🧾</div>
+        <h3 data-i18n="case3_t">No expense deduction if self-employed</h3>
+        <p data-i18n="case3_p">The 10% self-employed rate is charged on gross revenue, with no deduction for costs. For work with heavy expenses, an entrepreneur or company — taxed on profit — can come out ahead despite the higher headline rates.</p>
+        <span class="tag flat" data-i18n="case3_tag">Depends</span>
+      </div>
+      <div class="case">
+        <div class="ico">💻</div>
+        <h3 data-i18n="case4_t">High-Tech Park (ПВТ) residency</h3>
+        <p data-i18n="case4_p">The HTP long gave IT companies near-zero profit tax and reduced contributions. Preferences remain but have narrowed in recent years. Still worth checking if the contractor operates through an HTP company.</p>
+        <span class="tag up" data-i18n="case4_tag">Can lower</span>
+      </div>
+      <div class="case">
+        <div class="ico">📈</div>
+        <h3 data-i18n="case5_t">Crossing the high-income bands</h3>
+        <p data-i18n="case5_p">Aggregate personal income over 350,000 BYN (~€99k) a year meets a 25% super-income rate, rising to 30% at the very top (dividends are capped at 25%). Comfortably above where a typical single-client contractor lands, but worth knowing at the top end.</p>
+        <span class="tag down" data-i18n="case5_tag">Net ↓</span>
+      </div>
+      <div class="case">
+        <div class="ico">💸</div>
+        <h3 data-i18n="case6_t">Dividend timing</h3>
+        <p data-i18n="case6_p">Company owners once used a reduced 6% dividend rate for profit left undistributed for three years (and 0% for five). The 6% rate was abolished for 2026, so the 13% standard rate is the safe planning assumption now.</p>
+        <span class="tag flat" data-i18n="case6_tag">Changing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap" style="max-width:900px">
+    <h2>FAQ</h2>
+    <div class="faq-list" id="faq-list"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta" style="padding-top:20px">
+  <div class="wrap">
+    <div class="cta">
+      <h2 data-i18n="cta_h2">Belarus rewrote the contractor rules in 2026. Sure you're still compliant?</h2>
+      <a class="btn btn-orange" href="#"><span data-i18n="cta_btn">Check your setup</span><i>→</i></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot">
+    <div>
+      <div class="logo">Kle<b>o</b>s</div>
+      <p class="disc" data-i18n="footer_disc">This page is for general information only and is not tax, legal, accounting or sanctions-compliance advice. Tax figures reflect the 2026 Belarusian rules and simplified assumptions stated next to each calculation; rates have changed repeatedly in recent years. Amounts are shown in euros at an indicative ~3.55 BYN/€ for comparison, but Belarusian tax is assessed in rubles and the rate moves. Any note on sanctions here is a neutral, high-level pointer that changes frequently and differs by jurisdiction — always screen counterparties against your own government's current lists and take qualified sanctions and tax advice before paying anyone in Belarus.</p>
+    </div>
+    <div class="copy">© 2026 Kleos</div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   TAX CONFIG — Belarus 2026.  Update once a year.
+   Sources: Tax Code (НК РБ), Law on professional income tax (НПД),
+   ФСЗН contribution rules (Law 90-З / 118-З), CIT & dividend rules,
+   indicative EUR/BYN rate.  Rates here have changed often — verify.
+   ============================================================ */
+const BYN_PER_EUR = 3.55;          // indicative 2026 rate
+const MZP_BYN = 858;               // monthly minimum wage (МЗП), 2026
+const TAX = {
+  year: 2026,
+  npd: { rate: 0.10 },             // self-employed, all-in (incl. ФСЗН); foreign-client income stays 10%
+  ip:  {
+    rate: 0.20,                    // entrepreneur income tax on profit
+    // ФСЗН floor: 35% on a minimum base of 12 monthly minimum wages
+    fsznFloorEUR: (12 * MZP_BYN * 0.29) / BYN_PER_EUR  // ~29% pension on a 12-МЗП min base
+  },
+  ooo: { corpRate: 0.20, dividendRate: 0.13 },
+  highBandBYN: 350000              // 25% super-income band above this, 2026 (not modelled in base calc)
+};
+
+/* ---- engine: gross invoiced -> breakdown ---- */
+function compute(gross, expenses, regime){
+  if(regime === 'npd'){
+    const tax = gross * TAX.npd.rate;      // 10% of revenue, contributions included
+    const net = Math.max(0, gross - tax);
+    return { regime, gross, tax, net };
+  }
+  if(regime === 'ip'){
+    const profit  = Math.max(0, gross - expenses);
+    const fszn    = TAX.ip.fsznFloorEUR;               // minimum contribution floor
+    const taxable = Math.max(0, profit - fszn);        // ФСЗН deductible
+    const tax     = taxable * TAX.ip.rate;
+    const net     = Math.max(0, profit - fszn - tax);
+    return { regime, gross, expenses, fszn, tax, net };
+  }
+  // OOO
+  const profit = Math.max(0, gross - expenses);
+  const corp = profit * TAX.ooo.corpRate;
+  const distributable = Math.max(0, profit - corp);
+  const divTax = distributable * TAX.ooo.dividendRate;
+  const net = Math.max(0, distributable - divTax);
+  return { regime, gross, expenses, corp, divTax, net };
+}
+
+function solveForNet(target, expenses, regime){
+  let lo = 0, hi = 3_000_000;
+  for(let i=0;i<60;i++){
+    const mid = (lo+hi)/2;
+    const r = compute(mid, expenses, regime);
+    if(r.net < target) lo = mid; else hi = mid;
+  }
+  return (lo+hi)/2;
+}
+
+/* ============================================================
+   STATE + RENDER
+   ============================================================ */
+let LANG='en', regime='npd', dir='gross';
+const euro = n => '€' + Math.round(n).toLocaleString('de-DE');
+const byn  = eur => Math.round(eur*BYN_PER_EUR).toLocaleString('de-DE')+' BYN';
+const parseNum = s => parseFloat((s||'').toString().replace(/[^\d.]/g,'')) || 0;
+
+function setLang(l){ LANG=l; document.documentElement.lang=l;
+  applyI18n(); buildChecklist(); buildFaq(); calc();
+}
+function setRegime(r){ regime=r;
+  document.querySelectorAll('.regime').forEach(b=>b.classList.toggle('on', b.dataset.regime===r));
+  document.getElementById('field-exp').classList.toggle('hidden', r==='npd');
+  document.getElementById('ipwarn').classList.toggle('hidden', r!=='ip');
+  calc();
+}
+function setDir(d){ dir=d;
+  document.querySelectorAll('[data-dir]').forEach(b=>b.classList.toggle('on', b.dataset.dir===d));
+  document.getElementById('field-gross').classList.toggle('hidden', d!=='gross');
+  document.getElementById('field-net').classList.toggle('hidden', d!=='net');
+  calc();
+}
+function calc(){
+  const expenses = parseNum(document.getElementById('exp').value);
+  let gross;
+  if(dir==='net'){
+    gross = solveForNet(parseNum(document.getElementById('net').value), expenses, regime);
+  } else {
+    gross = parseNum(document.getElementById('gross').value);
+  }
+  document.getElementById('hint-byn').textContent = '≈ ' + byn(gross) + I18N[LANG].byn_suffix;
+  render(compute(gross, expenses, regime), gross);
+}
+function render(r, gross){
+  const T = I18N[LANG];
+  const g = Math.max(gross,1);
+  let segNet=r.net, segSoc=0, segTax=0, segExp=0, socLabel='', taxLabel='';
+  let rows = row(T.r_gross, euro(gross), false);
+  if(regime==='npd'){
+    segTax = r.tax; taxLabel = T.l_tax;
+    rows += row(T.r_npd, '– '+euro(r.tax), true);
+  } else if(regime==='ip'){
+    segExp = r.expenses; segSoc = r.fszn; segTax = r.tax;
+    socLabel = T.l_soc; taxLabel = T.l_tax;
+    rows += row(T.r_exp, '– '+euro(r.expenses), true);
+    rows += row(T.r_soc, '– '+euro(r.fszn), true);
+    rows += row(T.r_tax, '– '+euro(r.tax), true);
+  } else {
+    segExp = r.expenses; segSoc = r.corp; segTax = r.divTax;
+    socLabel = T.l_corp; taxLabel = T.l_div;
+    rows += row(T.r_exp, '– '+euro(r.expenses), true);
+    rows += row(T.r_corp, '– '+euro(r.corp), true);
+    rows += row(T.r_div, '– '+euro(r.divTax), true);
+  }
+  rows += `<div class="line net"><span class="ll">${T.r_net}</span><span class="lv">${euro(r.net)}</span></div>`;
+  document.getElementById('lines').innerHTML = rows;
+
+  const bar = document.getElementById('bar');
+  bar.children[0].style.width = (segNet/g*100)+'%';
+  bar.children[1].style.width = (segSoc/g*100)+'%';
+  bar.children[2].style.width = (segTax/g*100)+'%';
+  bar.children[3].style.width = (segExp/g*100)+'%';
+
+  let lg = `<span><i class="dot" style="background:var(--green)"></i>${T.l_net}</span>`;
+  if(segSoc>0) lg += `<span><i class="dot" style="background:var(--green-deep)"></i>${socLabel}</span>`;
+  if(segTax>0) lg += `<span><i class="dot" style="background:var(--orange)"></i>${taxLabel}</span>`;
+  if(segExp>0) lg += `<span><i class="dot" style="background:var(--ink)"></i>${T.l_exp}</span>`;
+  document.getElementById('legend').innerHTML = lg;
+
+  document.getElementById('permonth').textContent = euro(r.net/12);
+  document.getElementById('effrate').textContent = (gross>0 ? ((gross-r.net)/gross*100) : 0).toFixed(1)+'%';
+  document.getElementById('assume').textContent = T['assume_'+regime];
+}
+function row(label,val,sub){ return `<div class="line ${sub?'sub':''}"><span class="ll">${label}</span><span class="lv">${val}</span></div>`; }
+
+/* ---- FAQ ---- */
+/* ---- misclassification checklist ---- */
+let checkState=[];
+function buildChecklist(){
+  const T=I18N[LANG];
+  const tick='<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+  document.getElementById('checks').innerHTML = T.checks.map((c,i)=>
+    `<div class="check ${checkState[i]?'on':''}" onclick="toggleCheck(${i})"><div class="box">${tick}</div><div class="txt">${c}</div></div>`).join('');
+  updateVerdict();
+}
+function toggleCheck(i){ checkState[i]=!checkState[i]; buildChecklist(); }
+function updateVerdict(){
+  const T=I18N[LANG], n=checkState.filter(Boolean).length, v=document.getElementById('verdict');
+  v.className='verdict';
+  if(n===0){ v.classList.add('safe'); v.textContent=T.mis_vsafe; }
+  else if(n<=2){ v.classList.add('warn'); v.textContent=T.mis_vwarn.replace('{n}',n); }
+  else { v.classList.add('danger'); v.textContent=T.mis_vdanger.replace('{n}',n); }
+}
+
+function buildFaq(){
+  const T=I18N[LANG];
+  document.getElementById('faq-list').innerHTML = T.faq.map((f,i)=>
+    `<div class="qa" id="qa${i}"><button onclick="toggleQa(${i})">${f.q}<span class="plus">+</span></button><div class="ans"><p>${f.a}</p></div></div>`).join('');
+}
+function toggleQa(i){
+  const el=document.getElementById('qa'+i), ans=el.querySelector('.ans');
+  const open=el.classList.toggle('open');
+  ans.style.maxHeight = open ? ans.scrollHeight+'px' : 0;
+}
+
+function applyI18n(){
+  const T=I18N[LANG];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ const k=el.dataset.i18n; if(T[k]!==undefined) el.textContent=T[k]; });
+}
+document.addEventListener('input', e=>{ if(['gross','net','exp'].includes(e.target.id)) calc(); });
+
+/* ============================================================
+   I18N
+   ============================================================ */
+const I18N = {
+ en: {
+  nav_calc:"Calculator", nav_how:"How it works", nav_class:"Misclassification",
+  nav_cases:"Special cases", nav_faq:"FAQ", nav_demo:"Book a demo",
+  hero_eyebrow:"Belarus · Contractor taxation guide · 2026",
+  hero_h1a:"Hiring in Belarus?", hero_h1b:"Here's where the money ", hero_h1c:"actually goes.",
+  hero_lead:"Your contractor pays their own taxes — but the rate you agree on decides what actually lands in their pocket. This page gives both of you the full math: every rate, every threshold, and the two things that quietly bite — the 2026 IP reform and getting money into Belarus at all.",
+  hero_btn1:"Run the numbers", hero_btn2:"How it works",
+  nav_pay:"Sanctions",
+  pay_eyebrow:"Sanctions & payments",
+  pay_h2:"What sanctions actually block",
+  pay_sub:"Belarus often gets treated as off-limits. It isn't — the sanctions target named banks and entities, not the country, and what you can actually do depends on where you sit, with the US and EU now pointing in opposite directions.",
+  pay_eu_flag:"EU · tightening", pay_eu_t:"A full transaction ban, and growing",
+  pay_eu_p:"Since July 2025 the EU prohibits any transaction with a set of Belarusian banks, widened the list in October 2025, and has kept tightening through 2026. Anything they own 50%+ is caught too.",
+  pay_eu_banks:"Belagroprombank · Bank Dabrabyt · Development Bank · Belinvestbank · BelVEB · Belgazprombank · Alfa-Bank (Belarus) · Sber Bank (Belarus) · VTB Bank (Belarus)",
+  pay_us_flag:"US · easing", pay_us_t:"Rolling measures back since late 2025",
+  pay_us_p:"OFAC has been lifting, not adding — and has kept easing through 2026. General License 14 (March 2026) cleared Belinvestbank for US persons, and potash designations were dropped. Same bank the EU blocks — opposite answer, depending on your nexus.",
+  pay_kleos_h:"Someone has to screen every payment. It shouldn't be you.",
+  pay_kleos_p:"Every payment into Belarus means checking the counterparty and its bank against three moving sanction lists. We run that screen and only pay where it clears — so you're not the one deciding whether a transfer is legal.",
+  pay_asof:"Reflects mid-2026. Sanctions here change frequently and differ by jurisdiction (US, EU, UK) — treat the bank list as indicative, not definitive, and screen against live lists before any payment. This is not legal or sanctions advice.",
+  fact1:"self-employed tax — and social contributions are already included",
+  fact2:"flat income tax for a registered entrepreneur, on profit",
+  fact3:"company profit tax, then again on dividends",
+  fact4:"fixed yearly social-contribution floor for an entrepreneur, whatever they earn",
+  calc_h2:"Same invoice. Three very different bills.",
+  calc_sub:"The self-employed route is strikingly cheap; a company is not. Pick a status, type the yearly amount you'll pay them, and see what actually lands in their pocket.",
+  reg_npd_t:"Self-employed", reg_npd_d:"Professional income tax — 10% all-in",
+  reg_ip_t:"Entrepreneur (IP)", reg_ip_d:"20% on profit · limited from 2026",
+  ipwarn:"From 1 January 2026, IP status is limited to a defined list of permitted activities (Resolution 457). Many services — including much IT and consulting — are no longer allowed as an IP and must use an OOO instead. Check the activity against the list before assuming this route is open.",
+  reg_ooo_t:"OOO company", reg_ooo_d:"Profit tax + dividends",
+  dir_gross:"I know the rate", dir_net:"I want a target net",
+  in_gross:"Annual amount you'll pay them (€)",
+  in_net:"Target annual net for your contractor (€)",
+  in_net_hint:"We'll solve for the rate you'd need to agree on to leave this in their pocket.",
+  in_exp:"Deductible business expenses (€ / year)",
+  in_exp_hint:"The entrepreneur and company routes tax real profit, so expenses reduce the bill. Self-employed tax is a flat 10% of revenue with no expense deduction.",
+  per_month:"net per month", eff_rate:"effective rate",
+  byn_suffix:" you'll pay",
+  l_net:"Net in pocket", l_tax:"Tax", l_soc:"Contributions (floor)",
+  l_corp:"Profit tax", l_div:"Dividend tax", l_exp:"Expenses",
+  r_gross:"What you pay them", r_npd:"Professional income tax (10%, incl. contributions)",
+  r_soc:"Social contributions (ФСЗН floor)", r_tax:"Income tax (20%)",
+  r_exp:"Deductible expenses", r_corp:"Profit tax (20%)", r_div:"Dividend tax (13%)",
+  r_net:"Net in pocket / year",
+  assume_npd:"Self-employed (professional income tax): a flat 10% of revenue that already includes social contributions, with no expense deduction. Income from foreign clients stays at 10% — the 20% band applies only to income from Belarusian companies above 60,000 BYN. From 1 July 2026 a minimum tax of 45 BYN/month applies even with no income. Not tax advice.",
+  assume_ip:"Entrepreneur (IP): note that from 1 January 2026 IP status is restricted to a list of permitted activities (Resolution 457) — many services must use an OOO instead. Where still available: 20% income tax on profit (revenue minus expenses), plus a fixed ФСЗН social-contribution floor charged on a minimum base of 12× the minimum wage (~€840/yr), not on income. A higher 30% band applies to very high entrepreneur income. Not tax advice.",
+  assume_ooo:"OOO (company), simplified: 20% profit tax, then 13% on distributed dividends. Excludes a director's salary and contributions and accounting fees, the 25% super-income band above 350,000 BYN, and any High-Tech Park relief. A real company's burden differs. Not tax advice.",
+  how_eyebrow:"The system, in three charges",
+  how_h2:"Low, flat tax — and contributions that stay small.",
+  how_sub:"Belarus taxes personal income at a flat 13%, self-employment at 10%, and entrepreneurs and companies at 20%. Social contributions are nominally high but, for solo workers, sit on a low fixed floor — or are folded into the self-employed rate entirely.",
+  how_irpf_t:"Income tax — low and mostly flat",
+  how_irpf_p:"Self-employment is taxed at 10%, standard personal income and dividends at 13%, and entrepreneurs and companies at 20%. A 25% super-income band applies to personal income above 350,000 BYN (~€99k) a year (30% at the very top; dividends cap at 25%) — high enough that most contractors never reach it.",
+  how_irpf_r1:"Self-employed", how_irpf_r2:"Entrepreneur / company", how_irpf_r3:"Dividends",
+  how_soc_t:"Contributions — but on a low floor",
+  how_soc_p:"Social contributions (ФСЗН) are charged not on full income but on a minimum base of just 12× the monthly minimum wage — a fixed floor of roughly €840 a year for a solo entrepreneur (about 29% pension, up to 35% combined). The self-employed rate has them baked in already.",
+  how_soc_r1:"Pension (min)", how_soc_r2:"Entrepreneur floor", how_soc_r3:"Self-employed", how_soc_r3v:"included",
+  how_iva_t:"VAT — usually not your problem",
+  how_iva_p:"Standard VAT is 20%, but the self-employed regime sits outside VAT, and services exported to a foreign client are generally zero-rated or out of scope. It rarely touches a solo contractor billing abroad.",
+  how_iva_r1:"Standard rate", how_iva_r2:"Reduced", how_iva_r3:"Exported services", how_iva_r3v:"0% / outside",
+  tl_title:"A year in the life of a Belarusian contractor's taxes",
+  tl1_when:"Day 1", tl1_t:"Pick a status and register",
+  tl1_p:"Self-employment registers through the tax authority's app in minutes; an entrepreneur (IP) or company (OOO) registers with the tax office / registry. Status determines everything that follows.",
+  tl2_when:"Monthly (self-employed)", tl2_t:"Declare income, pay 10% in the app",
+  tl2_p:"The self-employed app calculates 10% on declared receipts — contributions included — and you pay in-app. Income from a foreign client stays at 10%; the 20% band only touches income from Belarusian companies over 60,000 BYN.",
+  tl3_when:"Annually (entrepreneur)", tl3_t:"File income tax, settle ФСЗН by 31 March",
+  tl3_p:"An IP files income tax on profit (income minus documented expenses) and pays the social-contribution floor for the year by 31 March of the following year.",
+  tl4_when:"Watch continuously", tl4_t:"Currency rules and the payment rail",
+  tl4_p:"Foreign-currency proceeds face currency-control rules on the Belarus side — and on the payer's side, sanctions screening and a working bank route decide whether the money arrives at all.",
+  cases_eyebrow:"Same rate, different net",
+  cases_h2:"Cases that change the final number",
+  cases_sub:"In Belarus the status and the payment route matter more than the headline rate. These move the outcome most.",
+  case1_t:"Which status they register", case1_p:"Self-employed (10% all-in), entrepreneur (20% + a small floor) and company (20% then 13% on dividends) don't converge — the burden can run from 10% to nearly 40% at the same income. It's the biggest lever on this page.", case1_tag:"Big swing",
+  case2_t:"Billing a foreign client", case2_p:"The self-employed 20% band only applies to income from Belarusian companies above 60,000 BYN. Income from a foreign client stays at the flat 10% — which is exactly the cross-border contractor case.", case2_tag:"Stays 10%",
+  case3_t:"No expense deduction if self-employed", case3_p:"The 10% self-employed rate is charged on gross revenue, with no deduction for costs. For work with heavy expenses, an entrepreneur or company — taxed on profit — can come out ahead despite the higher headline rates.", case3_tag:"Depends",
+  case4_t:"High-Tech Park (ПВТ) residency", case4_p:"The HTP long gave IT companies near-zero profit tax and reduced contributions. Preferences remain but have narrowed in recent years. Still worth checking if the contractor operates through an HTP company.", case4_tag:"Can lower",
+  case5_t:"Crossing the high-income bands", case5_p:"Aggregate personal income over 350,000 BYN (~€99k) a year meets a 25% super-income rate, rising to 30% at the very top (dividends are capped at 25%). Comfortably above where a typical single-client contractor lands, but worth knowing at the top end.", case5_tag:"Net ↓",
+  case6_t:"Dividend timing", case6_p:"Company owners once used a reduced 6% dividend rate for profit left undistributed for three years (and 0% for five). The 6% rate was abolished for 2026, so the 13% standard rate is the safe planning assumption now.", case6_tag:"Changing",
+  cta_h2:"Belarus rewrote the contractor rules in 2026. Sure you're still compliant?", cta_btn:"Check your setup",
+  footer_disc:"This page is for general information only and is not tax, legal, accounting or sanctions-compliance advice. Tax figures reflect the 2026 Belarusian rules and simplified assumptions stated next to each calculation; rates have changed repeatedly in recent years. Amounts are shown in euros at an indicative ~3.55 BYN/€ for comparison, but Belarusian tax is assessed in rubles and the rate moves. Any note on sanctions here is a neutral, high-level pointer that changes frequently and differs by jurisdiction — always screen counterparties against your own government's current lists and take qualified sanctions and tax advice before paying anyone in Belarus.",
+  mis_h2:"One contract away from being an employee.",
+  mis_sub:"Belarus reads substance over form — set out in Resolution 465 and article 33 of the Tax Code. If a contractor works like staff, the authorities can treat the deal as employment: back income tax, ФСЗН contributions and penalties, with the company — not the contractor — on the hook. From 2026 there's a sharper edge: if the person is an IP working outside the permitted-activity list, it's not just reclassification, it's unlicensed activity.",
+  mis_ci:"Tick what's true of the arrangement. Meet too many and it reads less like an independent contractor and more like an employee paid through a workaround.",
+  checks:[
+    "Fixed hours, a workplace, or subordination to the company's internal rules",
+    "A single or dominant client, paid a regular, salary-like amount",
+    "Integrated into the team — company email, standups, a manager",
+    "An exclusivity or non-compete expectation, as if employed",
+    "Registered as an IP in an activity no longer permitted from 2026 (Resolution 457)",
+    "No signs of an independent business — no own clients, tools or commercial risk"
+  ],
+  mis_v0:"Tick the items above to gauge the reclassification risk.",
+  mis_vsafe:"Nothing ticked — this reads as a genuine contractor relationship. Keep the paperwork (contract, acts, invoices) matching that reality.",
+  mis_vwarn:"{n} sign(s) — a grey area. Any of these can invite a substance-over-form challenge; tighten the arrangement before it's tested.",
+  mis_vdanger:"{n} signs — this looks like employment in a contractor's wrapper. That's the pattern that gets reclassified, with back tax, ФСЗН and penalties landing on you, not them.",
+  faq:[
+    {q:"Could hiring a Belarusian contractor be reclassified as employment?",a:"Yes — and the bill lands on you. Belarus applies substance over form (Resolution 465, article 33 of the Tax Code): if the contractor works fixed hours, answers to a manager, has no other clients and is paid like staff, the authorities can treat the contract as employment and charge back income tax, ФСЗН contributions and penalties to the company. Keep the relationship — and the paperwork — genuinely independent, and from 2026 check the contractor's IP activity is still on the permitted list."},
+    {q:"Who actually pays the taxes — the company or the contractor?",a:"The contractor. A Belarusian self-employed person, entrepreneur or company invoices you and handles their own tax and contributions — the self-employed simply declare income in the tax app and pay 10%, contributions included. Your job is to pay the agreed invoice, but the rate you agree sets what's left after their taxes, so this page shows both sides."},
+    {q:"Can we even pay a contractor in Belarus?",a:"Often yes, but it depends on your jurisdiction and the contractor's bank — sanctions and payment-rail restrictions can apply, and they change. That's a compliance question separate from the tax picture on this page: screen the counterparty against your own government's current lists, confirm a working payment route, and take qualified advice before sending anything."},
+    {q:"Why is the self-employed rate only 10%?",a:"Belarus's professional income tax for the self-employed is a flat 10% of revenue that already bundles the social-contribution component, with no separate expense accounting. Crucially, income earned from foreign clients stays at 10% — the higher 20% band applies only to income received from Belarusian companies above 60,000 BYN a year. For a solo contractor billing abroad, that makes it the simplest and cheapest status by a wide margin."},
+    {q:"What's the difference between self-employed, an IP and an OOO?",a:"Self-employed is an individual on the 10% professional income tax — simplest and cheapest, best for a solo contractor. An IP (individual entrepreneur) pays 20% income tax on profit plus a small fixed social-contribution floor — but note that since 1 January 2026 IP status is limited to a list of permitted activities (Resolution 457), and many services must now use an OOO instead. An OOO is a limited company — 20% profit tax then 13% on dividends, plus a director and accounting — which suits scale, and is increasingly the default where IP is no longer allowed."},
+    {q:"What about the High-Tech Park?",a:"The HTP is Belarus's special IT regime, historically offering resident companies near-zero profit tax, VAT relief and reduced social contributions calculated on the national average wage rather than full salary. It remains in place with some preferences, though several have narrowed since 2025 and many residents relocated after 2022. If a contractor operates through an HTP-resident company the numbers can be materially lower — worth confirming case by case."},
+    {q:"How current are the numbers, and why euros?",a:"They reflect the 2026 Belarusian parameters: 10% self-employed tax, 20% entrepreneur and company profit tax, 13% dividends, a 25% super-income band above 350,000 BYN, and the ФСЗН contribution floor. Belarusian rates have changed repeatedly in recent years, so treat these as an informed snapshot. Tax is assessed in rubles; we show euros at an indicative ~3.55 BYN/€ purely to compare with the other country pages. Confirm current figures with a Belarusian adviser — and the sanctions position separately, since it moves fastest of all."}
+  ]
+ },
+};
+
+/* init */
+applyI18n(); buildChecklist(); buildFaq(); setRegime('npd'); calc();
+</script>
+</body>
+</html>
