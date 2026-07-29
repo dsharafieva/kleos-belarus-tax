@@ -155,6 +155,13 @@
   .verdict.warn{background:#FFF1E8;color:#B23e00}
   .verdict.danger{background:#FFE1E1;color:#B00000}
   .verdict.safe{background:#E7F7EC;color:#046b1e}
+  .diverge{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+  .dbox{border:1px solid var(--grey-line);border-radius:var(--radius-sm);padding:20px 22px}
+  .dbox .flag{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+  .dbox.eu .flag{color:var(--orange)} .dbox.us .flag{color:var(--green)}
+  .dbox h4{font-size:1rem;margin-bottom:8px}
+  .dbox p{font-size:.9rem;color:#3a3a3a;line-height:1.5}
+  .dbox .banks{font-size:.8rem;color:var(--grey-text);margin-top:12px;line-height:1.6}
   .note{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--grey-line);
     border-left:4px solid var(--orange);border-radius:var(--radius-sm);padding:20px 22px;background:var(--grey)}
   .note-ico{font-size:1.3rem;line-height:1.2}
@@ -192,6 +199,7 @@
   .disc{font-size:.75rem;color:var(--grey-text);line-height:1.55;max-width:66ch;margin-top:22px}
   .copy{font-size:.8rem;color:var(--grey-text)}
   @media(max-width:860px){
+    .diverge{grid-template-columns:1fr}
     section{padding:64px 20px}
     .nav-links{display:none}
     .facts{grid-template-columns:repeat(2,1fr)}
@@ -217,6 +225,7 @@
       <a href="#calc" data-i18n="nav_calc">Calculator</a>
       <a href="#how" data-i18n="nav_how">How it works</a>
       <a href="#class" data-i18n="nav_class">Misclassification</a>
+      <a href="#pay" data-i18n="nav_pay">Sanctions</a>
       <a href="#cases" data-i18n="nav_cases">Special cases</a>
       <a href="#faq" data-i18n="nav_faq">FAQ</a>
     </div>
@@ -397,16 +406,33 @@
   </div>
 </section>
 
-<!-- PAYMENTS NOTE -->
-<section id="pay" style="padding-top:44px;padding-bottom:44px">
+<!-- SANCTIONS & PAYMENTS -->
+<section id="pay">
   <div class="wrap">
-    <div class="note">
-      <div class="note-ico">⚠️</div>
-      <div>
-        <strong data-i18n="note_h">Before you pay</strong>
-        <p data-i18n="note_p">Sanctions and payment-rail restrictions may apply when paying into Belarus, and they differ by jurisdiction and change often. This sits outside the tax picture below — screen your counterparty and check compliance in your own jurisdiction before committing.</p>
+    <span class="eyebrow" data-i18n="pay_eyebrow">Sanctions &amp; payments</span>
+    <h2 style="font-size:clamp(2rem,4vw,2.9rem)" data-i18n="pay_h2">Belarus isn't a no. It's a "carefully."</h2>
+    <p style="max-width:64ch;margin-top:14px;color:#3a3a3a;font-size:1.05rem" data-i18n="pay_sub">The big platforms file Belarus next to Iran and North Korea and stop there. But it isn't a blanket embargo — the sanctions target named banks and entities, not the country. What you can actually do depends on where you sit, and the US and EU now point in opposite directions.</p>
+    <div class="diverge">
+      <div class="dbox eu">
+        <div class="flag" data-i18n="pay_eu_flag">EU · tightening</div>
+        <h4 data-i18n="pay_eu_t">A full transaction ban, and growing</h4>
+        <p data-i18n="pay_eu_p">Since July 2025 the EU prohibits any transaction with a set of Belarusian banks, widened the list in October 2025, and has kept tightening through 2026. Anything they own 50%+ is caught too.</p>
+        <div class="banks" data-i18n="pay_eu_banks">Belagroprombank · Bank Dabrabyt · Development Bank · Belinvestbank · BelVEB · Belgazprombank · Alfa-Bank (Belarus) · Sber Bank (Belarus) · VTB Bank (Belarus)</div>
+      </div>
+      <div class="dbox us">
+        <div class="flag" data-i18n="pay_us_flag">US · easing</div>
+        <h4 data-i18n="pay_us_t">Rolling measures back since late 2025</h4>
+        <p data-i18n="pay_us_p">OFAC has been lifting, not adding — and has kept easing through 2026. General License 14 (March 2026) cleared Belinvestbank for US persons, and potash designations were dropped. Same bank the EU blocks — opposite answer, depending on your nexus.</p>
       </div>
     </div>
+    <div class="note" style="margin-top:22px">
+      <div class="note-ico">✅</div>
+      <div>
+        <strong data-i18n="pay_kleos_h">This is the work — and the reason to use us here</strong>
+        <p data-i18n="pay_kleos_p">We screen every counterparty and payment route against the lists that apply to you, and move money only where it's lawful. That's why Belarus is a "yes, handled" for us, not a blanket no.</p>
+      </div>
+    </div>
+    <p style="font-size:.75rem;color:var(--grey-text);margin-top:16px;max-width:82ch" data-i18n="pay_asof">Reflects mid-2026. Sanctions here change frequently and differ by jurisdiction (US, EU, UK) — treat the bank list as indicative, not definitive, and screen against live lists before any payment. This is not legal or sanctions advice.</p>
   </div>
 </section>
 
@@ -665,8 +691,18 @@ const I18N = {
   hero_h1a:"Hiring in Belarus?", hero_h1b:"Here's where the money ", hero_h1c:"actually goes.",
   hero_lead:"Your contractor pays their own taxes — but the rate you agree on decides what actually lands in their pocket. This page gives both of you the full math: every rate, every threshold, and the two things that quietly bite — the 2026 IP reform and getting money into Belarus at all.",
   hero_btn1:"Run the numbers", hero_btn2:"How it works",
-  note_h:"Before you pay",
-  note_p:"Sanctions and payment-rail restrictions may apply when paying into Belarus, and they differ by jurisdiction and change often. This sits outside the tax picture below — screen your counterparty and check compliance in your own jurisdiction before committing.",
+  nav_pay:"Sanctions",
+  pay_eyebrow:"Sanctions & payments",
+  pay_h2:"Belarus isn't a no. It's a \"carefully.\"",
+  pay_sub:"The big platforms file Belarus next to Iran and North Korea and stop there. But it isn't a blanket embargo — the sanctions target named banks and entities, not the country. What you can actually do depends on where you sit, and the US and EU now point in opposite directions.",
+  pay_eu_flag:"EU · tightening", pay_eu_t:"A full transaction ban, and growing",
+  pay_eu_p:"Since July 2025 the EU prohibits any transaction with a set of Belarusian banks, widened the list in October 2025, and has kept tightening through 2026. Anything they own 50%+ is caught too.",
+  pay_eu_banks:"Belagroprombank · Bank Dabrabyt · Development Bank · Belinvestbank · BelVEB · Belgazprombank · Alfa-Bank (Belarus) · Sber Bank (Belarus) · VTB Bank (Belarus)",
+  pay_us_flag:"US · easing", pay_us_t:"Rolling measures back since late 2025",
+  pay_us_p:"OFAC has been lifting, not adding — and has kept easing through 2026. General License 14 (March 2026) cleared Belinvestbank for US persons, and potash designations were dropped. Same bank the EU blocks — opposite answer, depending on your nexus.",
+  pay_kleos_h:"This is the work — and the reason to use us here",
+  pay_kleos_p:"We screen every counterparty and payment route against the lists that apply to you, and move money only where it's lawful. That's why Belarus is a \"yes, handled\" for us, not a blanket no.",
+  pay_asof:"Reflects mid-2026. Sanctions here change frequently and differ by jurisdiction (US, EU, UK) — treat the bank list as indicative, not definitive, and screen against live lists before any payment. This is not legal or sanctions advice.",
   fact1:"self-employed tax — and social contributions are already included",
   fact2:"flat income tax for a registered entrepreneur, on profit",
   fact3:"company profit tax, then again on dividends",
